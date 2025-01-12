@@ -21,3 +21,6 @@ new branch :
 
 
 Modified app.js and added object functions
+
+
+learning JS
