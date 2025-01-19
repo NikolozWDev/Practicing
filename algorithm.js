@@ -5,3 +5,6 @@ while(i < array.length) {
   console.log(array[i]);
  i = i + 1;
 };
+
+
+there are more tools
