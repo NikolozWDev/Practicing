@@ -9,7 +9,13 @@ modified
 <<<<<<< HEAD
 
 back-end modified1
+
+
+document.querySelector('#jeimi').classList.add('openbar')
+
+
 modified2
+
 modified3 dev2
 =======
 modified (another pc) (fixed)
