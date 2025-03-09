@@ -15,3 +15,4 @@ solve many problems tasks
 
 solved 8 tasks today
 good job
+more job to require more logic intelect
