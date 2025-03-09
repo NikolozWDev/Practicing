@@ -32,3 +32,5 @@ Modified app.js and added object functions
 
 
 learning JS
+
+modified and starting to add more tools
