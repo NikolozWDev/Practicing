@@ -1,3 +1,5 @@
+organized code and added some tools
+
 added modified ~ \/
 s
 Exit
