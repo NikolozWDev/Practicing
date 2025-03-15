@@ -1,3 +1,4 @@
+modifing app.js
 organized code and added some tools
 
 added modified ~ \/
