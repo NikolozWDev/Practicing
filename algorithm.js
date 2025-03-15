@@ -16,3 +16,5 @@ solve many problems tasks
 solved 8 tasks today
 good job
 more job to require more logic intelect
+
+today solved 3 6kyu Javascript problems in codewars
