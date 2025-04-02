@@ -1,4 +1,4 @@
-ordinary modifing app.js
+finished last project ordinary modifing app.js
 organized code and added some tools
 modified it
 
