@@ -19,3 +19,4 @@ more job to require more logic intelect
 
 today solved 3 6kyu Javascript problems in codewars
 momiteve
+4 7kyu tasks
