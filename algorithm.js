@@ -1,5 +1,7 @@
 let array = [10, 23, 25, 62, 45, 23];
 
+solved medium task
+
 let i = 0;
 while(i < array.length) {
   console.log(array[i]);
