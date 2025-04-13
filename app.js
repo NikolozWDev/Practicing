@@ -1,4 +1,5 @@
 
+made algorithms
 made good things
 
 finished last project ordinary modifing app.js organized code and 
