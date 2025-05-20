@@ -1,3 +1,4 @@
+settings, urls, views, templates, jinja and more features
 added django
 practicing back-end
 python code
