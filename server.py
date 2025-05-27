@@ -1,3 +1,4 @@
+recognize all servers by adminPanel
 settings, urls, views, templates, jinja and more features
 added django
 practicing back-end
