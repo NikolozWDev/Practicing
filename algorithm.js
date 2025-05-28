@@ -1,3 +1,4 @@
+solved algorithms
 bodishi mishiko
 
 let array = [10, 23, 25, 62, 45, 23];
