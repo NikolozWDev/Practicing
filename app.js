@@ -1,3 +1,4 @@
+changed another device
 
 added game
 made algorithms
