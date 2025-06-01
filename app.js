@@ -1,3 +1,4 @@
+changed and adding logics in JS
 changed another device
 
 added game
