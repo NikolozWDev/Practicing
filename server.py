@@ -1,3 +1,4 @@
+adding images and filefields for more settings
 made changes in server and databases to login the user (logout to)
 recognize all servers by adminPanel
 settings, urls, views, templates, jinja and more features
