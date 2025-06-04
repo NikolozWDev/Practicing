@@ -1,3 +1,4 @@
+data- attribute and JS logic
 adding JS in back-end
 changed and adding logics in JS
 changed another device
