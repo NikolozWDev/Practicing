@@ -1,3 +1,4 @@
+running
 added JS in back-end
 adding images and filefields for more settings
 made changes in server and databases to login the user (logout to)
