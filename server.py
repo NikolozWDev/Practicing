@@ -1,3 +1,4 @@
+generating structure
 running
 added JS in back-end
 adding images and filefields for more settings
