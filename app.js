@@ -1,3 +1,4 @@
+javascript added
 worked fullstackweb-project
 data- attribute and JS logic
 adding JS in back-end
