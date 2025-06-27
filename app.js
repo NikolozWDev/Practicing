@@ -1,3 +1,4 @@
+added 6kyu logic
 javascript added
 worked fullstackweb-project
 data- attribute and JS logic
