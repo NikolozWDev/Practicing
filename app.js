@@ -1,3 +1,4 @@
+solved 6kyu tasks
 added 6kyu logic
 javascript added
 worked fullstackweb-project
