@@ -1,3 +1,4 @@
+created CRUD operation easly
 running server again
 running server firstpro
 generating structure
