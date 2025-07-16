@@ -1,3 +1,4 @@
+added react Django rest project
 solved tasks
 solved 6kyu tasks
 added 6kyu logic
