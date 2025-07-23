@@ -1,3 +1,4 @@
+tailwindcss is worst
 added react Django rest project
 solved tasks
 solved 6kyu tasks
