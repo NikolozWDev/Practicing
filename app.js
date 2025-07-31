@@ -1,3 +1,4 @@
+working with react and state, props AI-chat
 finished projects and uploaded it
 tailwindcss is worst
 added react Django rest project
