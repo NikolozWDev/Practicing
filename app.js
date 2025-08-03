@@ -1,3 +1,5 @@
+npm create vite@latest AI-chat --template react
+
 working with react and state, props AI-chat
 finished projects and uploaded it
 tailwindcss is worst
