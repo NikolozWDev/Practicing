@@ -1,3 +1,6 @@
+double someNumber = .123 + .456 * Math.Pow(Math.E, .789 * Math.Pow((homeIndex + .22), .012));
+algorithm that shows someNumber
+
 thinking passwords
 solved algorithms
 bodishi mishiko
