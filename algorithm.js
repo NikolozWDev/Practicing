@@ -1,3 +1,8 @@
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold = 0;
+
+
 function quickSort(arr) {
   if (arr.length <= 1) {
     return arr;
