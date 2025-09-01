@@ -1,2 +1,12 @@
+@test.describe("Diagonal")
+def tests():
+    @test.it("basic tests")
+    def basics():
+        test.assert_equals(diagonal(20, 3), 5985)
+        test.assert_equals(diagonal(20, 4),20349)
+        test.assert_equals(diagonal(20, 5), 54264)
+
+
+
 [1,4,5],[1,4,6],[2,4,5],[2,4,6]
 function([[1,2],[4],[5,6]]) = 4
