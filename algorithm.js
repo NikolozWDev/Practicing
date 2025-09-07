@@ -1,3 +1,16 @@
+function createGame(winningNumber) {
+  let attempts = 0; // This variable is stored in the closure's backpack
+
+  return function guess(number) {
+    attempts++;
+    if (number === winningNumber) {
+      return `You win in ${attempts} attempts!`;
+    } else {
+      return `Try again. It's your ${attempts}th attempt.`;
+    }
+  }
+}
+
 const chai = require("chai");
 const assert = chai.assert;
 chai.config.truncateThreshold = 0;
