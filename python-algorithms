@@ -1,3 +1,12 @@
+import codewars_test as test
+from solution import solve
+@test.describe('Fixed Tests')
+def fixed_tests():
+    @test.it('Simple Cases')
+    def example_cases():
+        test.assert_equals(solve(1,25),4) 
+
+
 @test.describe("Diagonal")
 def tests():
     @test.it("basic tests")
