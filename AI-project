@@ -1,0 +1,26 @@
+TaskFlow/
+├── backend/
+│   ├── manage.py
+│   ├── taskflow/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   └── api/
+│       ├── models.py
+│       ├── views.py
+│       ├── serializers.py
+│       ├── urls.py
+├── frontend/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   ├── tailwind.config.js
+│   └── package.json
+├── README.md
+
+
+Working AI project named AI-chat
+jsx
+tailwindcss

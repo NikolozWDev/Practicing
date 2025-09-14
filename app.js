@@ -1,3 +1,17 @@
+npm create vite@latest AI-chat --template react
+
+function increment(n) {return n + 1};
+function id(n) {return n};
+function sqr(n) {return n * n};
+
+const naturalNumbers = new Stream(0, id, increment);
+
+console.log(naturalNumbers.head()) // 0
+console.log(naturalNumbers.tail().head()) // 1
+console.log(naturalNumbers.tail().tail().head()) // 2
+
+
+working with react and state, props AI-chat
 finished projects and uploaded it
 tailwindcss is worst
 added react Django rest project
