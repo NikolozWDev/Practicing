@@ -1,3 +1,7 @@
+npm install -g serve
+serve -s build
+npm install
+npm run build
 npm create vite@latest AI-chat --template react
 
 function increment(n) {return n + 1};
