@@ -1,3 +1,19 @@
+import codewars_test as test
+from solution import alphabetic
+
+
+def dotest(s, expected):
+    test.assert_equals(alphabetic(s), expected)
+
+
+@test.describe("Tests")
+def test_group():
+    @test.it("Sample tests")
+    def test_case():
+        for s, expected in [('asd', False), ('codewars', False), ('door', True), ('cell', True), ('z', True),
+                            ('', True), ]:
+            dotest(s, expected)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
