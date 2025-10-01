@@ -1,0 +1,64 @@
+ecommerce:
+  app:
+    name: MyShop
+    version: 1.0.0
+    currency: "USD"
+    tax_rate: 0.18
+    languages:
+      - en
+      - ge
+
+  database:
+    engine: postgresql
+    host: localhost
+    port: 5432
+    username: shop_admin
+    password: supersecret
+    name: shop_db
+
+  payment_gateways:
+    - name: Stripe
+      api_key: "sk_test_123456"
+      enabled: true
+    - name: PayPal
+      client_id: "paypal-client-id"
+      client_secret: "paypal-secret"
+      enabled: true
+
+  products:
+    - id: 1
+      name: "iPhone 15"
+      price: 1299.99
+      stock: 50
+      categories:
+        - smartphones
+        - apple
+    - id: 2
+      name: "Samsung Galaxy S24"
+      price: 1099.99
+      stock: 35
+      categories:
+        - smartphones
+        - samsung
+
+  shipping:
+    methods:
+      - name: Standard
+        price: 5.99
+        delivery_days: 5-7
+      - name: Express
+        price: 19.99
+        delivery_days: 1-2
+
+  users:
+    - &admin_user
+      username: admin
+      email: admin@myshop.com
+      role: admin
+    - username: alex
+      email: alex@myshop.com
+      role: customer
+    - username: niko
+      email: niko@myshop.com
+      role: seller
+      inherits: *admin_user
