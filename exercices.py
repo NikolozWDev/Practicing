@@ -1,3 +1,16 @@
+from solution import de_nico
+
+@test.describe('Fixed Tests')
+def fixed_tests():
+    @test.it('Simple Cases')
+    def example_cases():
+        test.assert_equals(de_nico("crazy","cseerntiofarmit on  "),"secretinformation")
+        test.assert_equals(de_nico("crazy","cseerntiofarmit on"),"secretinformation")
+        test.assert_equals(de_nico("abc","abcd"),"abcd")
+        test.assert_equals(de_nico("ba","2143658709"), "1234567890")
+        test.assert_equals(de_nico("a","message"),"message")
+        test.assert_equals(de_nico("key","eky"),"key")
+
 #!/bin/bash
 playPass () {
     # your code
