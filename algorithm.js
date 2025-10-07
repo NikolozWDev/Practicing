@@ -1,3 +1,17 @@
+class Archiver {
+    constructor() {
+    }
+
+    set temperature(temperature) {
+    }
+
+    get temperature() {
+    }
+
+    getArchive() {
+        return [];
+    }
+}
 function createGame(winningNumber) {
   let attempts = 0; // This variable is stored in the closure's backpack
 
