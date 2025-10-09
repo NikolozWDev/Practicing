@@ -1,4 +1,10 @@
+#include <vector>
+#include <utility>
 
+auto generate_pairs(unsigned n) -> std::vector<std::pair<unsigned, unsigned>>
+{
+    return {};
+}
 #include <vector>
 
 long sumTwoSmallestNumbers(std::vector<int> numbers)
