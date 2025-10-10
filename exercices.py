@@ -1,3 +1,17 @@
+rom solution import generate_hashtag
+import codewars_test as test
+
+@test.describe("Fixed tests")
+def tests():
+    
+    @test.it("Should generate the correct hashtag in fixed tests")
+    def test_correct_hashtag_fixed():
+        test.assert_equals(generate_hashtag('Codewars'), '#Codewars', 'Should handle a single word.')
+examples:
+	" Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"
+"    Hello     World   "                  =>  "#HelloWorld"
+""                                        =>  false
+
 from solution import de_nico
 
 @test.describe('Fixed Tests')
