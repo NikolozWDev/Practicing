@@ -1,3 +1,21 @@
+from solution import count_robots
+import codewars_test as test
+
+@test.describe("Count robots")
+def count_robots():
+    @test.it("Basic tests")g
+from solution import arbitrate
+import codewars_test as test
+
+@test.describe("Example tests")
+def _():
+    @test.it("Tests")
+    def __():
+        test.assert_equals(arbitrate("001000101", 9), "001000000")
+        test.assert_equals(arbitrate("000000101", 9), "000000100")
+        test.assert_equals(arbitrate("0000", 4), "0000")
+
+
 import codewars_test as test
 from solution import solve
 @test.describe('Fixed Tests')
