@@ -1,3 +1,14 @@
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Framed Reflection", () => {
+  it("Fixed tests", () => {
+    assert.strictEqual(mirror('Hello World'), '*********\n* olleH *\n* dlroW *\n*********');
+    assert.strictEqual(mirror('Codewars'), '************\n* srawedoC *\n************'); 
+  })
+});
+
 npm install -g serve
 serve -s build
 npm install
