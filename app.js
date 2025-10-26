@@ -1,3 +1,14 @@
+const { assert } = require('chai');
+
+describe("Example tests", function() {
+    it("should pass basic tests", function() {
+        assert.strictEqual(finance(5), 105);
+        assert.strictEqual(finance(6), 168);
+        assert.strictEqual(finance(8), 360);
+        assert.strictEqual(finance(15), 2040);
+    });
+});
+
 const chai = require("chai");
 const assert = chai.assert;
 chai.config.truncateThreshold=0;
