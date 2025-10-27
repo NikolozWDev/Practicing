@@ -1,3 +1,28 @@
+
+import codewars_test as test
+from preloaded import validate
+from solution import dance
+
+@test.describe('Example test cases')
+def example_tests():
+    def run_test(map_str, optimal, desc=''):
+        print(desc)
+        print(f'Map: \n{map_str}')
+        solution = dance(map_str)
+        
+        if not isinstance(solution, str):
+            test.expect(False, "You did not return a string")
+            return
+        
+        valid = validate(map_str, solution)
+        print(f"\n \nYour moves: {solution}")
+        print("Folded: ")
+        print('\n'.join(' '.join(row) for row in valid[0]))
+        
+        if valid[1] is not True:
+            test.expect(False, valid[1])
+            return
+
 rom solution import generate_hashtag
 import codewars_test as test
 
