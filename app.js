@@ -1,5 +1,14 @@
 const { assert } = require('chai');
 
+describe('Example tests', () => {
+  it('should test knight moves', () => {
+    let arr = [['a1', 'c1', 2], ['a1', 'f1', 3], ['a1', 'f3', 3], ['a1', 'f4', 4], ['a1', 'f7', 5]];
+    for (let i of arr) assert.equal(knight(i[0], i[1]), i[2], `knight('${i[0]}', '${i[1]}') should return ${i[2]}`);
+  });
+});
+
+const { assert } = require('chai');
+
 describe("Example tests", function() {
     it("should pass basic tests", function() {
         assert.strictEqual(finance(5), 105);
