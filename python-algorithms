@@ -1,3 +1,11 @@
+import codewars_test as test
+try:
+    from solution import regressionLine as regression_line
+except:
+    from solution import regression_line
+
+@test.describe("Fixed Tests")
+
 @test.describe('Sample tests')
 def sample_tests():
     for name, test_cases in sample_test_cases:
