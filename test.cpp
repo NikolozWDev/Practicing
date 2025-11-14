@@ -1,3 +1,19 @@
+Describe(ExampleTests)
+{
+  
+    It(FourNodesWithLoopSize3)
+    {
+        Node n1, n2, n3, n4;
+      
+      	n1.setNext(&n2);
+      	n2.setNext(&n3);
+      	n3.setNext(&n4);
+      	n4.setNext(&n2);
+        
+        int actual = getLoopSize(&n1);            
+        Assert::That(actual, Equals(3), ExtraMessage("Incorrect answer for 4 nodes: tail of 1 node, and a loop of 3 nodes"));
+    }
+
 #include <vector>
 #include <utility>
 
