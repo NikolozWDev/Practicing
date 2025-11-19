@@ -1,3 +1,8 @@
+    def total_price(self):
+        price = self.product.down_price if self.product.down_price != "0.00" else self.product.price
+        return price * self.number
+    total_price = property(total_price)
+
 added models in Basket page. model basket. new database
 
 import codewars_test as test
