@@ -1,3 +1,14 @@
+function listFromArray(nodesArray) {
+   if(nodesArray.length === 0)
+       return null;
+   const head = nodesArray[0];
+   for (let i = 1; i < nodesArray.length; i++)
+       nodesArray[i - 1].next = nodesArray[i];
+
+   nodesArray.at(-1).next = null;
+   return head;
+    }
+
 from solution import sq_in_rect
 import codewars_test as test
 
