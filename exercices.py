@@ -1,4 +1,12 @@
 import codewars_test as test
+from solution import round_by_2_decimal_places
+from decimal import Decimal
+
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+
+import codewars_test as test
 from solution import *
 
 @test.describe("Fixed Tests")
