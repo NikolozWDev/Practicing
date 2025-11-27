@@ -1,3 +1,21 @@
+from solution import Vector
+import codewars_test as test
+
+@test.describe("Vector tests")
+def vector_tests():
+    
+    @test.it("Example tests")
+    def example_tests():
+        
+        a = Vector([1, 2])
+        b = Vector([3, 4])
+        
+        test.expect(a.add(b).equals(Vector([4, 6])))
+        
+        
+        a = Vector([1, 2, 3])
+        b = Vector([3, 4, 5])
+
     def total_price(self):
         price = self.product.down_price if self.product.down_price != "0.00" else self.product.price
         return price * self.number
