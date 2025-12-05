@@ -1,3 +1,9 @@
+const Test = require('@codewars/test-compat');
+
+describe("Kata Tests",function(){
+  it("Standard Tests", function(){
+    var Goku = new Warrior();
+
 const { assert } = require('chai');
 
 describe('Example tests', () => {
