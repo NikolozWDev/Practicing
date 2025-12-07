@@ -1,3 +1,44 @@
+from solution import Vector
+import codewars_test as test
+
+@test.describe("Vector tests")
+def vector_tests():
+    
+    @test.it("Example tests")
+    def example_tests():
+        
+        a = Vector([1, 2])
+        b = Vector([3, 4])
+        
+        test.expect(a.add(b).equals(Vector([4, 6])))
+        
+        
+        a = Vector([1, 2, 3])
+        b = Vector([3, 4, 5])
+
+    def total_price(self):
+        price = self.product.down_price if self.product.down_price != "0.00" else self.product.price
+        return price * self.number
+    total_price = property(total_price)
+
+added models in Basket page. model basket. new database
+
+import codewars_test as test
+from solution import alphabetic
+
+
+def dotest(s, expected):
+    test.assert_equals(alphabetic(s), expected)
+
+
+@test.describe("Tests")
+def test_group():
+    @test.it("Sample tests")
+    def test_case():
+        for s, expected in [('asd', False), ('codewars', False), ('door', True), ('cell', True), ('z', True),
+                            ('', True), ]:
+            dotest(s, expected)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

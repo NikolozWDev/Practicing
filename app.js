@@ -1,3 +1,44 @@
+const Test = require('@codewars/test-compat');
+
+describe("Kata Tests",function(){
+  it("Standard Tests", function(){
+    var Goku = new Warrior();
+
+const { assert } = require('chai');
+
+describe('Example tests', () => {
+  it('should test knight moves', () => {
+    let arr = [['a1', 'c1', 2], ['a1', 'f1', 3], ['a1', 'f3', 3], ['a1', 'f4', 4], ['a1', 'f7', 5]];
+    for (let i of arr) assert.equal(knight(i[0], i[1]), i[2], `knight('${i[0]}', '${i[1]}') should return ${i[2]}`);
+  });
+});
+
+const { assert } = require('chai');
+
+describe("Example tests", function() {
+    it("should pass basic tests", function() {
+        assert.strictEqual(finance(5), 105);
+        assert.strictEqual(finance(6), 168);
+        assert.strictEqual(finance(8), 360);
+        assert.strictEqual(finance(15), 2040);
+    });
+});
+
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Framed Reflection", () => {
+  it("Fixed tests", () => {
+    assert.strictEqual(mirror('Hello World'), '*********\n* olleH *\n* dlroW *\n*********');
+    assert.strictEqual(mirror('Codewars'), '************\n* srawedoC *\n************'); 
+  })
+});
+
+npm install -g serve
+serve -s build
+npm install
+npm run build
 npm create vite@latest AI-chat --template react
 
 function increment(n) {return n + 1};

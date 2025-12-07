@@ -1,4 +1,72 @@
 import codewars_test as test
+try:
+    from solution import regressionLine as regression_line
+except:
+    from solution import regression_line
+
+@test.describe("Fixed Tests")
+
+@test.describe('Sample tests')
+def sample_tests():
+    for name, test_cases in sample_test_cases:
+        @test.it(name)
+        def tests():
+            for routes, expected in test_cases:
+                message = f'find_routes({routes})'
+                test.assert_equals(find_routes(routes), expected, message)
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it("User Attacked on Enemy's map at (6, 0)")
+    def _():
+        test.assert_equals(player.play(6, 0), "No damage! Enemy's turn")
+        
+    @test.it("Enemy Attacked on User's map at (1, 4)")
+    def _():
+        test.assert_equals(player.play(1, 4), 'Ship damaged, Enemy to continue')
+        
+    @test.it("Enemy Attacked on User's map at (1, 2)")
+    def _():
+        test.assert_equals(player.play(1, 2), "No damage! User's turn")
+        
+    @test.it("User Attacked on Enemy's map at (1, 3)")
+    def _():
+        test.assert_equals(player.play(1, 3), 'Ship damaged, User to continue')
+        
+    @test.it("User Attacked on Enemy's map at (5, 0)")
+    def _():
+        test.assert_equals(player.play(5, 0), 'Ship damaged, User to continue')
+        
+    @test.it("User Attacked on Enemy's map at (4, 2)")
+    def _():
+        test.assert_equals(player.play(4, 2), "No damage! Enemy's turn")
+        
+    @test.it("Enemy Attacked on User's map at (0, 0)")
+    def _():
+        test.assert_equals(player.play(0, 0), "No damage! User's turn")
+        
+    @test.it("User Attacked on Enemy's map at (3, 4)")
+    def _():
+        test.assert_equals(player.play(3, 4), "No damage! Enemy's turn")
+
+from solution import count_robots
+import codewars_test as test
+
+@test.describe("Count robots")
+def count_robots():
+    @test.it("Basic tests")g
+from solution import arbitrate
+import codewars_test as test
+
+@test.describe("Example tests")
+def _():
+    @test.it("Tests")
+    def __():
+        test.assert_equals(arbitrate("001000101", 9), "001000000")
+        test.assert_equals(arbitrate("000000101", 9), "000000100")
+        test.assert_equals(arbitrate("0000", 4), "0000")
+
+
+import codewars_test as test
 from solution import solve
 @test.describe('Fixed Tests')
 def fixed_tests():
