@@ -1,0 +1,2 @@
+Developed an AI-powered chat application using React and Node.js, integrating OpenAI’s gpt 4 API. Users can interact with an intelligent assistant in real-time. I did not upload last commit so responses will be by chatbot.
+If you interested code: https://lnkd.in/guG-iDNc
