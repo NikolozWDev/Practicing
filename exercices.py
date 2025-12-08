@@ -1,4 +1,18 @@
 import codewars_test as test
+from solution import letters_to_numbers
+
+@test.describe("Sample tests")
+def sample_tests():
+    test_cases = [
+        ["I Love You", 170],
+        ["ILoveYou", 170],
+        ["ARE YOU HUNGRY?", 356],
+        ["oops, i did it again!", 152],
+        ["Give me 5!", 73],
+        ["Give me five!", 110],
+    ]
+
+import codewars_test as test
 from solution import round_by_2_decimal_places
 from decimal import Decimal
 
