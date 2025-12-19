@@ -1,4 +1,15 @@
 import codewars_test as test
+from solution import doors
+
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+    def basic_test_cases():
+        test.assert_equals(doors(5), 2)
+        test.assert_equals(doors(10), 3)
+        test.assert_equals(doors(100), 10)
+
+import codewars_test as test
 from solution import letters_to_numbers
 
 @test.describe("Sample tests")
