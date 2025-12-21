@@ -1,4 +1,12 @@
 import codewars_test as test
+from solution import is_valid_IP
+
+@test.describe("Sample tests")
+def _():
+    @test.it("Tests")
+    def __():
+
+import codewars_test as test
 from solution import doors
 
 @test.describe("Fixed Tests")
