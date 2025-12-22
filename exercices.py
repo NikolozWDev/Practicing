@@ -1,4 +1,23 @@
 import codewars_test as test
+from solution import max_fork
+
+@test.describe("Example Tests")
+def example_tests():
+    
+    @test.it("No Forks")
+    def run_tests():
+        
+        ## No valid knight moves.
+        board1 = [['.', 'Q', '.', '.', '.', 'K', '.', '.'],
+                  ['.', '.', '.', 'N', '.', '.', '.', '.'],
+                  ['.', 'P', '.', '.', '.', 'B', '.', '.'],
+                  ['.', '.', 'R', '.', 'P', '.', '.', '.'],   
+                  ['.', '.', '.', '.', '.', '.', '.', '.'],
+                  ['.', 'P', '.', '.', '.', 'p', '.', 'p'],   
+                  ['.', '.', 'R', '.', 'p', '.', '.', '.'],
+                  ['N', '.', '.', '.', '.', '.', 'n', '.']]
+
+import codewars_test as test
 from solution import is_valid_IP
 
 @test.describe("Sample tests")
