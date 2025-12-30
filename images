@@ -1,3 +1,4 @@
+fixed localhost and render hosting server
 installed pillow, cloudinary storage and account
 working to fix images, icons, background urls
 added images, written plan to connect backend, frontend

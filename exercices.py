@@ -1,4 +1,69 @@
 import codewars_test as test
+from solution import find_lineup
+
+@test.describe("Example Tests")
+def example_tests():
+    
+    @test.it("Valid Cases") 
+    def run_tests():
+        
+        test.assert_equals(find_lineup([1, 2, 0]), [3, 1, 2])
+        test.assert_equals(find_lineup([1, 4, 2, 6, 8, 0, 5, 7, 3]), [6, 1, 3, 9, 2, 7, 4, 8, 5])
+        test.assert_equals(find_lineup([0]), [1])
+
+import codewars_test as test
+from solution import max_fork
+
+@test.describe("Example Tests")
+def example_tests():
+    
+    @test.it("No Forks")
+    def run_tests():
+        
+        ## No valid knight moves.
+        board1 = [['.', 'Q', '.', '.', '.', 'K', '.', '.'],
+                  ['.', '.', '.', 'N', '.', '.', '.', '.'],
+                  ['.', 'P', '.', '.', '.', 'B', '.', '.'],
+                  ['.', '.', 'R', '.', 'P', '.', '.', '.'],   
+                  ['.', '.', '.', '.', '.', '.', '.', '.'],
+                  ['.', 'P', '.', '.', '.', 'p', '.', 'p'],   
+                  ['.', '.', 'R', '.', 'p', '.', '.', '.'],
+                  ['N', '.', '.', '.', '.', '.', 'n', '.']]
+
+import codewars_test as test
+from solution import is_valid_IP
+
+@test.describe("Sample tests")
+def _():
+    @test.it("Tests")
+    def __():
+
+import codewars_test as test
+from solution import doors
+
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+    def basic_test_cases():
+        test.assert_equals(doors(5), 2)
+        test.assert_equals(doors(10), 3)
+        test.assert_equals(doors(100), 10)
+
+import codewars_test as test
+from solution import letters_to_numbers
+
+@test.describe("Sample tests")
+def sample_tests():
+    test_cases = [
+        ["I Love You", 170],
+        ["ILoveYou", 170],
+        ["ARE YOU HUNGRY?", 356],
+        ["oops, i did it again!", 152],
+        ["Give me 5!", 73],
+        ["Give me five!", 110],
+    ]
+
+import codewars_test as test
 from solution import round_by_2_decimal_places
 from decimal import Decimal
 

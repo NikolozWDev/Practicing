@@ -1,3 +1,30 @@
+@test.describe('Example Tests')
+def example_tests():
+    
+    @test.it('White Captures')
+    def white_captures():
+        
+        example_from_description = [
+         ["r","n","b","q","k","b",".","r"],
+         ["p","p","p",".",".","p","p","p"],
+         [".",".",".","p",".",".",".","."],
+         [".",".",".",".","N",".",".","."],
+         [".",".",".",".","P",".",".","."],
+         [".",".",".",".",".",".",".","."],
+         ["P","P","P","P",".","P","P","P"],
+         ["R","N","B","Q","K","B",".","R"]]
+        move1 = "e5xf7"
+
+from codewars_test import describe, it, assert_equals
+from solution import possible_words
+
+@describe("Sample tests")
+def _():
+    @it("One word only")
+    def _():
+        assert_equals(possible_words("."), {"E"})
+        assert_equals(possible_words("-"), {"T"})
+
 import codewars_test as test
 try:
     from solution import regressionLine as regression_line
