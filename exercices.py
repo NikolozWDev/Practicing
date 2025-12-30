@@ -1,3 +1,22 @@
+from solution import carmichael
+import codewars_test as test
+
+@test.describe("Fixed tests")
+def tests():
+    
+    @test.it("Should obtain correct result for fixed edge tests with where n is not a positive integer n >= 1")
+    def test_carmichael_fixed_edge():
+        TESTS = [(0,0),(-3,0),(-4003,0),(-1339185,0)]
+        for args in TESTS:
+            n, exp = args
+            test.assert_equals(carmichael(n), exp, "Returned solution incorrect for input value of n = {}. The correct answer is {}".format(n, exp))
+        
+    @test.it("Should obtain correct Carmichael function for fixed tests with small n")
+    def test_carmichael_fixed_small():
+        TESTS = [(1,1),(2,1),(4,2),(5,4),(7,6),(15,4),(30,4),(93,30),(73,72),(49,42),(870,28),(765,48),(118,58),(727,726),(643,642)]
+        for args in TESTS:
+            n, exp = args
+
 import codewars_test as test
 from solution import find_lineup
 
