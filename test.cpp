@@ -1,3 +1,18 @@
+Describe(Simple_Tests)
+{
+    It(should_handle_basic_values)
+    {
+        Assert::That(Carmichael(1), Equals(1));
+        Assert::That(Carmichael(9), Equals(6));
+        Assert::That(Carmichael(8), Equals(2));
+    }
+    It(should_handle_big_values)
+    {
+        Assert::That(Carmichael(983), Equals(982));
+        Assert::That(Carmichael(1601), Equals(1600));
+        Assert::That(Carmichael(65535), Equals(256));
+    }
+
 Describe(ExampleTests)
 {
   
