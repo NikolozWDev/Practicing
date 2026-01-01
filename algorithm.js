@@ -1,3 +1,36 @@
+// happy new year
+function willItWorkIn2026() {
+  const problems = [
+    "AI said it's fine ",
+    "Works on my machine! ",
+    "It's a feature, not a bug ",
+    "The internet told me to do this ",
+    "Added more console.log() "
+  ];
+  
+  const randomProblem = problems[Math.floor(Math.random() * problems.length)];
+  
+  const willWork = Math.random() > 0.5;
+  
+  if (willWork) {
+    return `Yes! Because: "${randomProblem}"`;
+  } else {
+    return `Nope But: "${randomProblem}"`;
+  }
+}
+
+function predict2026() {
+  console.log("2026 Prediction:");
+  console.log("JavaScript will have " + (Math.floor(Math.random() * 10) + 5) + " new frameworks");
+  console.log("We'll still not understand Promises");
+  console.log(willItWorkIn2026());
+}
+
+predict2026();
+
+console.log("\nconsole.log('Hello 2026!'); // Still debugging with this");
+
+
 function listFromArray(nodesArray) {
    if(nodesArray.length === 0)
        return null;
