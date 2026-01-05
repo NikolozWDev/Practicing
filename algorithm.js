@@ -1,3 +1,17 @@
+const { assert } = require("chai");
+
+describe("Sample Tests", () => {
+  it("", () => {
+    //return a.concat(b) ?
+    assert.deepEqual(testit([0],[1]), [0,1], "")
+    assert.deepEqual(testit([1,2],[3,4]), [1,2,3,4], "")
+    assert.deepEqual(testit([1],[2,3,4]), [1,2,3,4], "")
+    assert.deepEqual(testit([1,2,3],[4]), [1,2,3,4], "")
+    assert.deepEqual(testit([1,2],[1,2]), [1,1,2,2], "")
+    //click "Submit" try more testcase...
+  });
+});
+
 // happy new year
 function willItWorkIn2026() {
   const problems = [
