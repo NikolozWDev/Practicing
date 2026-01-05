@@ -1,3 +1,12 @@
+import codewars_test as test
+from solution import luck_check
+
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+    def basic_test_cases():
+        test.assert_equals(luck_check('5555'), True)
+
 from solution import carmichael
 import codewars_test as test
 
