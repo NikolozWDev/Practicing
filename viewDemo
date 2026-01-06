@@ -1,0 +1,11 @@
+describe("Tests", () => {
+  it("test", () => {
+  Test.assertEquals(quicksum("ACM"), 46)
+  Test.assertEquals(quicksum("MID CENTRAL"), 650)
+  Test.assertEquals(quicksum("BBC"), 15)
+  Test.assertEquals(quicksum("???"), 0)
+  Test.assertEquals(quicksum("axg "), 0)
+  Test.assertEquals(quicksum("234 234 WEF ASDF AAA 554211 ???? "), 0)
+  Test.assertEquals(quicksum("A C M"), 75)
+  });
+}
