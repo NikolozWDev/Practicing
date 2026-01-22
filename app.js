@@ -1,3 +1,19 @@
+const strictEqual = require('chai').assert.strictEqual;
+
+function doTest(n, k, expected) {
+  const actual = findKthNumber(n, k);
+  strictEqual(actual, expected, `for input n = ${n}n, k = ${k}n`)
+}
+
+describe("Sample tests", () => {
+  it("should return correct k-th number with same bits", () => {
+    doTest(9n, 2n, 12n)
+    doTest(17n, 2n, 20n)
+    doTest(31n, 5n, 62n)
+    doTest(1n, 1n, 2n)
+  })
+})
+
 // added more features
 const Test = require('@codewars/test-compat');
 
