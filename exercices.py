@@ -1,3 +1,25 @@
+def _test_teknonymize(input_, actual, expected):
+    if actual != expected:
+        print(f"<LOG::-Input>{input_}")
+        print(f"<TAB::-Actual>{json.dumps(actual, default=str)}")
+        print(f"<TAB::-Expected>{json.dumps(expected, default=str)}")
+        test.fail("Test failed")
+    else:
+        test.assert_equals(actual, expected)
+
+
+@test.describe("Sample Tests")
+def _():
+    def get_example():
+        persons = [_person() for _ in range(8)]
+        dates = ['1000-01-01', '1020-01-01', '1021-02-01', '1023-11-28', '1047-01-01', '1043-11-01', '1045-01-01', '1046-01-01']
+        sexes = ['m', 'f', 'm', 'm', 'f', 'f', 'f', 'm']
+        names = 'abcdhefg'
+        dates = map(datetime.fromisoformat, dates)
+        for p, n, d, s in zip(persons, names, dates, sexes):
+            p['name'] = n
+
+
 @test.describe('Walk Validator - fixed tests')
 def sample_tests():
     @test.it ("should return true for a valid walk")
