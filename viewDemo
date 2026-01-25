@@ -1,3 +1,5 @@
+monitoring junior developers and their projects.
+
 describe("Tests", () => {
   it("test", () => {
   Test.assertEquals(quicksum("ACM"), 46)
