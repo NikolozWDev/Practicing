@@ -1,3 +1,27 @@
+@test.describe('Example tests')
+def example_tests():
+
+    @test.it('Sample test')
+    def sample_tests():
+
+        rope = get_rope_length(200, 0.5)
+        test.assert_equals(rope, 115)
+
+        rope = get_rope_length(10, 0.5)
+        test.assert_equals(rope, 5)
+
+
+    @test.it('Do not eat anything')
+    def test_edge_no_eat():
+        rope = get_rope_length(200, 0.0)
+        test.assert_equals(rope, 0);
+
+
+    @test.it('Eat all grass')
+    def test_edge_eat_all():
+        rope = get_rope_length(200, 1.0)
+
+
 def _test_teknonymize(input_, actual, expected):
     if actual != expected:
         print(f"<LOG::-Input>{input_}")
