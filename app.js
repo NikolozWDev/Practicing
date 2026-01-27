@@ -1,3 +1,24 @@
+const { assert } = require("chai");
+
+describe("Duel Ground", function() {
+  
+  const ERROR_MARGIN = 1e-6;
+  
+  function act(p, q, expected) {
+    const actual = f(p, q)
+        , msg = `p = ${p}, q = ${q}`;
+    if (expected === null) {
+      assert.isNull(actual, msg);
+    } else {
+      assert.isArray(actual, msg);
+      assert.lengthOf(actual, 2, msg);
+      for (let i = 0; i < expected.length; i++) {
+        assert.isNumber(actual[i], msg);
+        assert.approximately(actual[i], expected[i], ERROR_MARGIN, msg);
+      }
+    }
+  }
+
 const strictEqual = require('chai').assert.strictEqual;
 
 function doTest(n, k, expected) {
