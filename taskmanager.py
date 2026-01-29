@@ -1,3 +1,33 @@
+@test.describe("Sample tests")
+def sample_test():
+    @test.it("powerset([1,2])")
+    def _():
+        test.assert_equals(powerset([1, 2]),
+            [[], 
+             [2], 
+             [1], 
+             [1,2]]
+        )
+    @test.it("powerset([1,2,3])")
+    def _():
+        test.assert_equals(powerset([1, 2, 3]),
+            [[], 
+             [3], 
+             [2], 
+             [2,3], 
+             [1], 
+             [1,3], 
+             [1,2], 
+             [1,2,3]]
+        )
+    @test.it("powerset([1])")
+    def _():
+        test.assert_equals(powerset([1]),
+            [[], 
+            [1]]
+        )
+    @test.it("powerset([125,15,155,15,158])")
+
 @test.describe("interlockable")
 def tests():
 
