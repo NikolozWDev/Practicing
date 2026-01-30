@@ -1,3 +1,19 @@
+@test.describe("minimum_percentage")
+def tests():
+    @test.it("Sample Tests")
+    def samples():
+        tests = (
+            ( (76,),             76 ),
+            ( (50, 100),         50 ),
+            ( (50, 50),           0 ),
+            ( (100, 100, 100),  100 ),
+            ( (65, 80, 80, 90),  15 )
+        )
+        for foods, expected in tests:
+            message = f"Testing for {foods}"
+            submitted = minimum_percentage(foods[:])
+            test.assert_equals(submitted, expected, message)
+
 @test.describe('Example tests')
 def example_tests():
 
