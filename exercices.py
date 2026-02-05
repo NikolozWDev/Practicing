@@ -1,3 +1,20 @@
+@test.describe("Sample Tests")
+def _():
+    ga = GeneticAlgorithm()
+
+    @test.describe("Short goal")
+    def short_goal_tests():
+        goal = "1110110111101101"
+        simple = simple_match_fitness(goal)
+
+        @test.it("Default iterations")
+        def default_iterations():
+            test.assert_equals(ga.run(simple, len(goal), 0.6, 0.002), goal)
+
+        @test.it("Defined iterations")
+        def defined_iterations():
+            test.assert_equals(ga.run(simple, len(goal), 0.6, 0.002, 100), goal)
+
 @test.describe("minimum_percentage")
 def tests():
     @test.it("Sample Tests")
