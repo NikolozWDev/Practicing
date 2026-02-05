@@ -1,3 +1,16 @@
+@test.describe('tests')
+def _():
+    @test.it('sample tests')
+    def _():
+        test.assert_equals(is_balanced("(Sensei says yes!)", "()"), True)
+        test.assert_equals(is_balanced("(Sensei says no!", "()"), False)
+
+        test.assert_equals(is_balanced("(Sensei [says] yes!)", "()[]"), True)
+        test.assert_equals(is_balanced("(Sensei [says) no!]", "()[]"), False)
+
+        test.assert_equals(is_balanced("Sensei says -yes-!", "--"), True)
+        test.assert_equals(is_balanced("Sensei -says no!", "--"), False)
+
 @test.describe("Sample tests")
 def sample_test():
     @test.it("powerset([1,2])")
