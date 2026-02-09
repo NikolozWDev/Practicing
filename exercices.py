@@ -1,3 +1,16 @@
+def row_sum_odd_numbers(n):
+    odd = n * (n - 1) + 1
+    arr = [odd]
+    sum = 0
+    i = 1
+    while i < n:
+        odd += 2
+        arr.append(odd)
+        i += 1
+    for j in arr:
+        sum += j
+    return sum
+
 @test.describe("Sample Tests")
 def _():
     ga = GeneticAlgorithm()
