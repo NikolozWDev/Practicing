@@ -1,3 +1,16 @@
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+
+    let sum1 = BigInt(l1.reverse().join('');)
+    let sum2 = BigInt(l2.reverse().join(''));
+
+    let result = (sum1 + sum2).toString().split('').reverse().map(Number)
+    
+};
+
 const { assert } = require('chai');
 
 describe("Split Strings", () => {
