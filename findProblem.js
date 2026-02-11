@@ -1,3 +1,15 @@
+function Warrior(n){
+  this._name = n;
+  this.name = function(n){
+    if(n) this._name = n;
+    return this._name;
+  }
+}
+
+Warrior.prototype.toString = function(){
+  return "Hi! my name's " + this.name();
+}
+
 const Test = require('@codewars/test-compat');
 
 describe("Tests", () => {
