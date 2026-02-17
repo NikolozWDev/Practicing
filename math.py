@@ -1,3 +1,12 @@
+def delete_nth(order,max_e):
+    result = []
+    count_item = {}
+    for i in order:
+        if count_item.get(i, 0) < max_e:
+            result.append(i)
+            count_item[i] = count_item.get(i, 0) + 1
+    return result
+
 @test.describe("Fixed Tests")
 def fixed_tests():
     @test.it('Basic Test Cases')
