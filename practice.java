@@ -1,3 +1,41 @@
+class Solution{
+
+  public static long toggleBit(long n, long position){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return -1;
+  }
+  
+  public static long setBit (long n, long position){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return -1;
+  }
+  
+  public static long clearBit (long n, long position){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return -1;
+  }
+  
+  public static boolean isBitSet(long n, long position){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return false;
+  }
+  
+  public static long setMultipleBits(long n, long mask){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return -1;
+  }
+  
+  public static long clearMultipleBits(long n, long mask){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return -1;
+  }
+  
+  public static long toggleMultipleBits(long n, long mask){
+    //PUT YOUR LOVELY CODE HERE ^_^
+    return -1;
+  }
+}
+
 class SolutionTest {
   
     @Test
