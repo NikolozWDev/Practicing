@@ -1,4 +1,173 @@
 import codewars_test as test
+from solution import delete_nth
+
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+    def basic_test_cases():
+        test.assert_equals(
+            delete_nth([20, 37, 20, 21], 1),
+            [20, 37, 21],
+            "From list [20, 37, 20, 21], 1 you get",
+        )
+        test.assert_equals(
+            delete_nth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3),
+            [1, 1, 3, 3, 7, 2, 2, 2],
+            "From list [1, 1, 3, 3, 7, 2, 2, 2, 2], 3 you get",
+        )
+        test.assert_equals(
+            delete_nth([1, 2, 3, 1, 1, 2, 1, 2, 3, 3, 2, 4, 5, 3, 1], 3),
+            [1, 2, 3, 1, 1, 2, 2, 3, 3, 4, 5],
+            "From list [1, 2, 3, 1, 1, 2, 1, 2, 3, 3, 2, 4, 5, 3, 1], 3 you get",
+        )
+        test.assert_equals(
+            delete_nth([1, 1, 1, 1, 1], 5),
+            [1, 1, 1, 1, 1],
+            "From list [1, 1, 1, 1, 1], 5 you get",
+        )
+        test.assert_equals(delete_nth([], 5), [], "From list [], 5 you get")
+        test.assert_equals(
+            delete_nth([12, 39, 19, 39, 39, 19, 12], 1), 
+            [12, 39, 19],
+            "From list [12, 39, 19, 39, 39, 19, 12], 1 you get",
+        )    
+
+def row_sum_odd_numbers(n):
+    odd = n * (n - 1) + 1
+    arr = [odd]
+    sum = 0
+    i = 1
+    while i < n:
+        odd += 2
+        arr.append(odd)
+        i += 1
+    for j in arr:
+        sum += j
+    return sum
+
+@test.describe("Sample Tests")
+def _():
+    ga = GeneticAlgorithm()
+
+    @test.describe("Short goal")
+    def short_goal_tests():
+        goal = "1110110111101101"
+        simple = simple_match_fitness(goal)
+
+        @test.it("Default iterations")
+        def default_iterations():
+            test.assert_equals(ga.run(simple, len(goal), 0.6, 0.002), goal)
+
+        @test.it("Defined iterations")
+        def defined_iterations():
+            test.assert_equals(ga.run(simple, len(goal), 0.6, 0.002, 100), goal)
+
+@test.describe("minimum_percentage")
+def tests():
+    @test.it("Sample Tests")
+    def samples():
+        tests = (
+            ( (76,),             76 ),
+            ( (50, 100),         50 ),
+            ( (50, 50),           0 ),
+            ( (100, 100, 100),  100 ),
+            ( (65, 80, 80, 90),  15 )
+        )
+        for foods, expected in tests:
+            message = f"Testing for {foods}"
+            submitted = minimum_percentage(foods[:])
+            test.assert_equals(submitted, expected, message)
+
+@test.describe('Example tests')
+def example_tests():
+
+    @test.it('Sample test')
+    def sample_tests():
+
+        rope = get_rope_length(200, 0.5)
+        test.assert_equals(rope, 115)
+
+        rope = get_rope_length(10, 0.5)
+        test.assert_equals(rope, 5)
+
+
+    @test.it('Do not eat anything')
+    def test_edge_no_eat():
+        rope = get_rope_length(200, 0.0)
+        test.assert_equals(rope, 0);
+
+
+    @test.it('Eat all grass')
+    def test_edge_eat_all():
+        rope = get_rope_length(200, 1.0)
+
+
+def _test_teknonymize(input_, actual, expected):
+    if actual != expected:
+        print(f"<LOG::-Input>{input_}")
+        print(f"<TAB::-Actual>{json.dumps(actual, default=str)}")
+        print(f"<TAB::-Expected>{json.dumps(expected, default=str)}")
+        test.fail("Test failed")
+    else:
+        test.assert_equals(actual, expected)
+
+
+@test.describe("Sample Tests")
+def _():
+    def get_example():
+        persons = [_person() for _ in range(8)]
+        dates = ['1000-01-01', '1020-01-01', '1021-02-01', '1023-11-28', '1047-01-01', '1043-11-01', '1045-01-01', '1046-01-01']
+        sexes = ['m', 'f', 'm', 'm', 'f', 'f', 'f', 'm']
+        names = 'abcdhefg'
+        dates = map(datetime.fromisoformat, dates)
+        for p, n, d, s in zip(persons, names, dates, sexes):
+            p['name'] = n
+
+
+@test.describe('Walk Validator - fixed tests')
+def sample_tests():
+    @test.it ("should return true for a valid walk")
+    def _():
+        test.assert_equals(is_valid_walk(['n','s','n','s','n','s','n','s','n','s']), True, 'should return True');
+    @test.it ("should return false if walk is too long")
+    def _():
+        test.assert_equals(is_valid_walk(['w','e','w','e','w','e','w','e','w','e','w','e']), False, 'should return False');
+    @test.it ("should return false if walk is too short")
+    def _():
+        test.assert_equals(is_valid_walk(['w']), False, 'should return False');
+    @test.it ("should return false if walk does not bring you back to start")
+    def _():        
+        test.assert_equals(is_valid_walk(['n','n','n','s','n','s','n','s','n','s']), False, 'should return False');
+
+import codewars_test as test
+from solution import luck_check
+
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+    def basic_test_cases():
+        test.assert_equals(luck_check('5555'), True)
+
+from solution import carmichael
+import codewars_test as test
+
+@test.describe("Fixed tests")
+def tests():
+    
+    @test.it("Should obtain correct result for fixed edge tests with where n is not a positive integer n >= 1")
+    def test_carmichael_fixed_edge():
+        TESTS = [(0,0),(-3,0),(-4003,0),(-1339185,0)]
+        for args in TESTS:
+            n, exp = args
+            test.assert_equals(carmichael(n), exp, "Returned solution incorrect for input value of n = {}. The correct answer is {}".format(n, exp))
+        
+    @test.it("Should obtain correct Carmichael function for fixed tests with small n")
+    def test_carmichael_fixed_small():
+        TESTS = [(1,1),(2,1),(4,2),(5,4),(7,6),(15,4),(30,4),(93,30),(73,72),(49,42),(870,28),(765,48),(118,58),(727,726),(643,642)]
+        for args in TESTS:
+            n, exp = args
+
+import codewars_test as test
 from solution import find_lineup
 
 @test.describe("Example Tests")

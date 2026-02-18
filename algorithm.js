@@ -1,3 +1,73 @@
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+
+    let sum1 = BigInt(l1.reverse().join('');)
+    let sum2 = BigInt(l2.reverse().join(''));
+
+    let result = (sum1 + sum2).toString().split('').reverse().map(Number)
+    
+};
+
+const { assert } = require('chai');
+
+describe("Split Strings", () => {
+  it("Basic tests", () => {
+    assert.deepEqual(solution("abcdef"), ["ab", "cd", "ef"]);
+    assert.deepEqual(solution("abcdefg"), ["ab", "cd", "ef", "g_"]);
+    assert.deepEqual(solution(""), []);
+  });
+});
+
+const { assert } = require("chai");
+
+describe("Sample Tests", () => {
+  it("", () => {
+    //return a.concat(b) ?
+    assert.deepEqual(testit([0],[1]), [0,1], "")
+    assert.deepEqual(testit([1,2],[3,4]), [1,2,3,4], "")
+    assert.deepEqual(testit([1],[2,3,4]), [1,2,3,4], "")
+    assert.deepEqual(testit([1,2,3],[4]), [1,2,3,4], "")
+    assert.deepEqual(testit([1,2],[1,2]), [1,1,2,2], "")
+    //click "Submit" try more testcase...
+  });
+});
+
+// happy new year
+function willItWorkIn2026() {
+  const problems = [
+    "AI said it's fine ",
+    "Works on my machine! ",
+    "It's a feature, not a bug ",
+    "The internet told me to do this ",
+    "Added more console.log() "
+  ];
+  
+  const randomProblem = problems[Math.floor(Math.random() * problems.length)];
+  
+  const willWork = Math.random() > 0.5;
+  
+  if (willWork) {
+    return `Yes! Because: "${randomProblem}"`;
+  } else {
+    return `Nope But: "${randomProblem}"`;
+  }
+}
+
+function predict2026() {
+  console.log("2026 Prediction:");
+  console.log("JavaScript will have " + (Math.floor(Math.random() * 10) + 5) + " new frameworks");
+  console.log("We'll still not understand Promises");
+  console.log(willItWorkIn2026());
+}
+
+predict2026();
+
+console.log("\nconsole.log('Hello 2026!'); // Still debugging with this");
+
+
 function listFromArray(nodesArray) {
    if(nodesArray.length === 0)
        return null;

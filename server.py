@@ -1,3 +1,16 @@
+import codewars_test as test
+import solution
+
+def fix_tester(input: str, expected: str):
+    output = solution.circle_mender(input)
+    
+    message = (f"You haven't fixed my circle :(\n"
+               f"Input:\n{input}\n"           
+               f"Output:\n{output}\n"         
+               f"Expected:\n{expected}\n"     
+               f"Can you try again?")
+    test.expect(output == expected, message)
+
 from solution import Vector
 import codewars_test as test
 
