@@ -1,3 +1,16 @@
+@test.describe('Fixed Tests')
+def _():
+    @test.it('Simple Cases')
+    def _():
+        u = LinkedList(1)
+        test.assert_equals(list_to_array(u), [1])
+
+        u = LinkedList(4, LinkedList(25, LinkedList(30)))
+        test.assert_equals(list_to_array(u), [4, 25, 30])
+
+        u = LinkedList(2, LinkedList(40, LinkedList(43, LinkedList(25, LinkedList(125)))))
+        test.assert_equals(list_to_array(u), [2, 40, 43, 25, 125])
+
 def example_tests():
     maze = [[1,1,1,1,1,1,1],
             [1,0,0,0,0,0,3],
