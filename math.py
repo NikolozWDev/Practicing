@@ -1,3 +1,11 @@
+def parts_sums(ls):
+    total = sum(ls)
+    result = [total]
+    for num in ls:
+        total -= num
+        result.append(total)
+    return result
+
 def delete_nth(order,max_e):
     result = []
     count_item = {}
