@@ -1,3 +1,14 @@
+def compute_sum(n):
+    total = 0
+    i = 1
+    while i <= n:
+        if len(str(i)) > 1:
+            total += sum(int(digit) for digit in str(i))
+        else:
+            total += i
+        i += 1
+    return total
+
 @test.describe('Fixed Tests')
 def _():
     @test.it('Simple Cases')
