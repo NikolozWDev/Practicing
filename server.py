@@ -1,4 +1,19 @@
 import codewars_test as test
+from solution import solution
+
+@test.describe("Sample tests")
+def sample_tests():
+    
+    @test.it("Should return 3 for n=4")
+    def _():
+        test.assert_equals(solution(4), 3)
+        
+    @test.it("Should return 8 for n=6")
+    def _():
+        test.assert_equals(solution(6), 8)
+    
+
+import codewars_test as test
 import solution
 
 def fix_tester(input: str, expected: str):
