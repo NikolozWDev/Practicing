@@ -1,3 +1,17 @@
+const { assert } = require('chai');
+
+describe("Tests", () => {
+  it("test", () => {
+    let abc = 'abcdefghijklmnopqrstuvwxyz';
+    let c = new AtbashCipher(abc);
+    assert.strictEqual(c.encode('abc'), 'zyx');
+    assert.strictEqual(c.encode('zyx'), 'abc');
+    assert.strictEqual(c.decode('abc'), 'zyx');
+    assert.strictEqual(c.decode('zyx'), 'abc');
+  });
+});
+
+
 const assert = require('chai').assert;
 describe("Basic tests", function(){
   it("should pass basic examples", function() {
