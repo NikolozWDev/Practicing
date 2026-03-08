@@ -1,3 +1,18 @@
+  for (let test of tests) {
+    
+    it(`Words: ${test.array}; character: '${test.character}'`, function() {
+    
+      let userResult = frame(test.array,test.character);
+      test.test = userResult === test.output;
+      if (!test.test) {
+        console.log(`<LOG::Input>Array:\n  [${test.array.map(w => `"${w}"`).join(', ')}]\nCharacter: '${test.character}'`.replace('\n', '<:LF:>'));
+        console.log(`<LOG::Expected>${test.output.replace('\n', '<:LF:>')}\n`);
+        console.log(`<TAB::Actual>${(userResult || '[no result]').replace('\n', '<:LF:>')}\n`);
+      }
+      assert(test.test, "Your result is not a correct frame");
+    });
+  }
+
 function Warrior(n){
   this._name = n;
   this.name = function(n){
