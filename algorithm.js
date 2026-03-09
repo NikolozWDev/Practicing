@@ -1,5 +1,15 @@
 const { assert } = require('chai');
 
+describe('Example tests', () => {
+  it("Basic Tests",() =>{
+    assert.strictEqual(colorProbability("red", "bumpy"), "0.57");
+    assert.strictEqual(colorProbability("green", "bumpy"), "0.14");
+    assert.strictEqual(colorProbability("yellow", "smooth"), "0.33");
+  });
+});
+
+const { assert } = require('chai');
+
 describe("Tests", () => {
   it("The smallest 4-parasitic number which ends with a 4 in base 10", () => {
     assert.strictEqual('102564', calculateSpecial(4, 10));
