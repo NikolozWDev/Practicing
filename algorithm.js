@@ -1,5 +1,17 @@
 const { assert } = require('chai');
 
+describe("Example tests", function() {
+  it("Should return the combined weight of just the tennis balls!", function() {
+    assert.deepEqual(ballCollector([58, 68, 62, 69, 58]), { weight: 116 });
+    assert.deepEqual(ballCollector([60,66,71,68,62]), { weight: 0 });
+    assert.deepEqual(ballCollector([58]), { weight: 58 });
+    assert.deepEqual(ballCollector([58, 58, 58]), { weight: 174 });
+  });
+});
+
+
+const { assert } = require('chai');
+
 describe('Example tests', () => {
   it("Basic Tests",() =>{
     assert.strictEqual(colorProbability("red", "bumpy"), "0.57");
