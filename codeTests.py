@@ -1,3 +1,16 @@
+@test.describe("Thanos Sort")
+def test_thanos():
+    @test.it("Fixed Tests")
+    def test_fixed():
+        test.assert_equals(thanos_sort([3,1,4,2]),1, f"Failed for arr = {[3,1,4,2]}")
+        test.assert_equals(thanos_sort([1,2,3,4]),4, f"Failed for arr = {[1,2,3,4]}")
+        test.assert_equals(thanos_sort([4,3,2,1]),1, f"Failed for arr = {[4,3,2,1]}")
+        test.assert_equals(thanos_sort([1]),1, f"Failed for arr = {[1]}")
+        test.assert_equals(thanos_sort([2,1]),1, f"Failed for arr = {[2,1]}")
+        test.assert_equals(thanos_sort([5,5,5,5]),4, f"Failed for arr = {[5,5,5,5]}")
+        test.assert_equals(thanos_sort([1,2,3,7,5,6]),3, f"Failed for arr = {[1,2,3,7,5,6]}")
+        test.assert_equals(thanos_sort([10,20,30,5,6,7]),3, f"Failed for arr = {[10,20,30,5,6,7]}")
+
 const { assert } = require('chai');
 
 describe("Tests", () => {
