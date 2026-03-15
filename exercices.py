@@ -1,3 +1,21 @@
+@test.describe("Example Test Cases")
+def example_tests():
+
+    @test.it("Start equals target")
+    def _():
+        test.assert_equals(
+            min_moves_with_promotion("b4", "b4"), 0)
+
+    @test.it("Simple pawn forward move")
+    def _():
+        test.assert_equals(
+            min_moves_with_promotion("b4", "b5"), 1)
+
+    @test.it("Pawn reaches promotion square")
+    def _():
+        test.assert_equals(
+            min_moves_with_promotion("b7", "b8"), 1)
+
 test.describe('Example Tests')
 example_tests = (
 	(100,(25,38,55,46,82),(64,90,37,25,58)),
