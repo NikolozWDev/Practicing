@@ -1,3 +1,13 @@
+describe("Word values", function(){
+  const {assert, config} = require('chai');
+  config.truncateThreshold = 0;
+
+  it("simple examples", function(){
+    assert.deepEqual( wordValue(["codewars","abc","xyz"]), [88,12,225] );
+    assert.deepEqual( wordValue(["abc abc","abc abc","abc","abc"]), [12,24,18,24] );
+  });
+});
+
 const { assert } = require('chai');
 
 describe("Example tests", function() {
