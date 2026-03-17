@@ -1,3 +1,13 @@
+describe("Example tests", function() {
+  it("Basic tests", function() {
+    assert.strictEqual(solve("codewars", 1, 5), "cawedors");
+    assert.strictEqual(solve("codingIsFun", 2, 100), "conuFsIgnid");
+    assert.strictEqual(solve("FunctionalProgramming", 2, 15), "FuargorPlanoitcnmming");
+    assert.strictEqual(solve("abcdefghijklmnopqrstuvwxyz", 0, 20), "utsrqponmlkjihgfedcbavwxyz");
+    assert.strictEqual(solve("abcdefghijklmnopqrstuvwxyz", 5, 20), "abcdeutsrqponmlkjihgfvwxyz");
+  });
+});
+
   for (let test of tests) {
     
     it(`Words: ${test.array}; character: '${test.character}'`, function() {
