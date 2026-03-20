@@ -1,4 +1,29 @@
-
+def geather_tan_arr(first, second):
+    tan_list = []
+    geather_list = []
+    full_arr = []
+    i = 0
+    while i < len(first):
+        j = 0
+        while j < len(second):
+            if first[i] == second[j]:
+                tan_list.append(first[i])
+            j += 1
+        i += 1
+    a = 0
+    while a < len(first):
+        full_arr.append(first[a])
+        a += 1
+    b = 0
+    while b < len(second):
+        full_arr.append(second[b])
+        b += 1
+    k = 0
+    while k < len(tan_list):
+        full_arr.pop(tan_list[k])
+        k += 1
+    geather_list.append(full_arr)
+    return [tan_list, geather_list]
 
 def compute_sum(n):
     total = 0
