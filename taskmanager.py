@@ -1,3 +1,17 @@
+import codewars_test as test
+from solution import format_score_list
+name, score = 'name', 'score'
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it("Basic Test Cases")
+    def _():
+        lst = [
+        {name:"Tom",score:100},
+        {name:"Jerry",score:95},
+        {name:"Mike",score:90}
+        ]
+        answer =\
+
 def geather_tan_arr(first, second):
     tan_list = []
     geather_list = []
