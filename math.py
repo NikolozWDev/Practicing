@@ -1,3 +1,63 @@
+# Title: Asynchronous Web Scraper with Concurrency Control
+
+import asyncio
+import aiohttp
+from aiohttp import ClientSession
+from bs4 import BeautifulSoup
+import async_timeout
+
+class AsyncWebScraper:
+    def __init__(self, urls, max_concurrent_tasks=5):
+        self.urls = urls
+        self.semaphore = asyncio.Semaphore(max_concurrent_tasks)
+        self.results = {}
+
+    async def fetch(self, session: ClientSession, url: str):
+        async with self.semaphore:
+            try:
+                with async_timeout.timeout(10):
+                    async with session.get(url) as response:
+                        response.raise_for_status()
+                        html = await response.text()
+                        return html
+            except Exception as e:
+                print(f"Error fetching {url}: {e}")
+                return None
+
+    async def parse(self, html: str, url: str):
+        if html:
+            soup = BeautifulSoup(html, 'html.parser')
+            title = soup.title.string if soup.title else 'No Title'
+            self.results[url] = title
+
+    async def scrape_url(self, session: ClientSession, url: str):
+        html = await self.fetch(session, url)
+        await self.parse(html, url)
+
+    async def run(self):
+        async with aiohttp.ClientSession() as session:
+            tasks = [self.scrape_url(session, url) for url in self.urls]
+            await asyncio.gather(*tasks)
+
+    def get_results(self):
+        return self.results
+
+# Usage Example
+if __name__ == "__main__":
+    urls = [
+        'https://www.python.org/',
+        'https://www.asyncio.org/',
+        'https://www.aiohttp.org/',
+        'https://www.wikipedia.org/',
+        'https://www.github.com/'
+    ]
+
+    scraper = AsyncWebScraper(urls, max_concurrent_tasks=3)
+    asyncio.run(scraper.run())
+    results = scraper.get_results()
+    for url, title in results.items():
+        print(f"{url} -> {title}")
+
 def seq_to_one(n):
     if n >= 1:
         return list(range(n, 0, -1))
