@@ -1,3 +1,12 @@
+function commitTitle(str) {
+  const cleanedStr = str.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const reversedStr = cleanedStr.split('').reverse().join('');
+  return cleanedStr === reversedStr;
+}
+
+console.log(commitTitle("A man, a plan, a canal, Panama"));
+console.log(commitTitle("OpenAI"));
+
 describe("Word values", function(){
   const {assert, config} = require('chai');
   config.truncateThreshold = 0;
