@@ -1,3 +1,15 @@
+import uuid
+
+def generate_crypto_uuid():
+    # Generate a random UUID (version 4)
+    crypto_uuid = uuid.uuid4()
+    return str(crypto_uuid)
+
+# Example usage
+if __name__ == "__main__":
+    print("Crypto UUID:", generate_crypto_uuid())
+
+
 # Title: Asynchronous Web Scraper with Concurrency Control
 
 import asyncio
