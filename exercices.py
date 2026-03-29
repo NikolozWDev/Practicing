@@ -1,3 +1,14 @@
+from solution import game
+import codewars_test as test
+
+@test.describe('Testing...')
+def _():
+    @test.it('"Fixed tests')
+    def _():
+        test.assert_equals(game(0), [0])
+        test.assert_equals(game(1), [1, 2])
+        test.assert_equals(game(8), [32])
+
 @test.describe("Example Test Cases")
 def example_tests():
 
