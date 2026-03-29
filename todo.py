@@ -1,0 +1,170 @@
+import sys
+import json
+from PyQt5.QtWidgets import (
+    QApplication, QWidget, QMainWindow, QVBoxLayout, QHBoxLayout,
+    QListWidget, QListWidgetItem, QLineEdit, QPushButton, QSizePolicy, QGridLayout
+)
+from PyQt5.QtCore import Qt
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
+
+    def load_tasks(self, filename):
+        try:
+            with open(filename, 'r') as f:
+                self.tasks = json.load(f)
+        except FileNotFoundError:
+            self.tasks = []
+
+    def save_tasks(self, filename):
+        with open(filename, 'w') as f:
+            json.dump(self.tasks, f)
+
+    def add_task(self, text):
+        self.tasks.append({"text": text, "done": False})
+
+    def delete_task(self, index):
+        if 0 <= index < len(self.tasks):
+            del self.tasks[index]
+
+    def mark_complete(self, index, done=True):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["done"] = done
+
+class TodoListApp(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.title = 'To-Do List'
+        self.left = 100
+        self.top = 100
+        self.width = 600
+        self.height = 400
+        self.task_manager = TaskManager()
+        self.task_manager.load_tasks('tasks.json')
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+        # Central widget and layout
+        central_widget = QWidget()
+        main_layout = QVBoxLayout(central_widget)
+
+        # Input area: QLineEdit + Add Button
+        input_layout = QHBoxLayout()
+        self.input_field = QLineEdit()
+        self.input_field.setPlaceholderText("Enter a new task")
+        input_layout.addWidget(self.input_field)
+
+        self.add_task_button = QPushButton("Add Task")
+        self.add_task_button.clicked.connect(self.add_task)
+        self.add_task_button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        input_layout.addWidget(self.add_task_button)
+
+        # Task list
+        self.task_list = QListWidget()
+        self.task_list.setDragDropMode(QListWidget.InternalMove)
+        self.task_list.itemChanged.connect(self.update_task_status)
+        main_layout.addLayout(input_layout)
+        main_layout.addWidget(self.task_list)
+
+        # Buttons at bottom: Delete and Mark Complete
+        button_layout = QGridLayout()
+        self.delete_button = QPushButton("Delete")
+        self.delete_button.clicked.connect(self.delete_selected_task)
+        self.delete_button.setFixedSize(100, 40)
+        self.delete_button.setStyleSheet("border-radius: 10px; background-color: #ff0000; color: #ffffff; font-size: 16px;")
+        button_layout.addWidget(self.delete_button, 0, 0)
+
+        self.mark_button = QPushButton("Toggle Complete")
+        self.mark_button.clicked.connect(self.toggle_complete)
+        self.mark_button.setFixedSize(150, 40)
+        self.mark_button.setStyleSheet("border-radius: 10px; background-color: #00ff00; color: #ffffff; font-size: 16px;")
+        button_layout.addWidget(self.mark_button, 1, 0)
+
+        main_layout.addLayout(button_layout)
+
+        central_widget.setLayout(main_layout)
+        self.setCentralWidget(central_widget)
+
+        # Load existing tasks into UI
+        self.load_tasks_into_ui()
+
+    def load_tasks_into_ui(self):
+        tasks = sorted(self.task_manager.tasks, key=lambda x: x['created_at'], reverse=True)
+        for task in tasks:
+            item = QListWidgetItem(task['text'])
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable | Qt.ItemIsEditable | Qt.ItemIsEnabled | Qt.ItemIsSelectable)
+            if task['done']:
+                item.setCheckState(Qt.Checked)
+                font = item.font()
+                font.setStrikeOut(True)
+                item.setFont(font)
+            else:
+                item.setCheckState(Qt.Unchecked)
+            self.task_list.addItem(item)
+
+    def add_task(self):
+        text = self.input_field.text().strip()
+        if text:
+            self.task_manager.add_task(text)
+            item = QListWidgetItem(text)
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable | Qt.ItemIsEditable | Qt.ItemIsEnabled | Qt.ItemIsSelectable)
+            item.setCheckState(Qt.Unchecked)
+            self.task_list.addItem(item)
+            self.input_field.clear()
+
+    def delete_selected_task(self):
+        selected_items = self.task_list.selectedItems()
+        for item in selected_items:
+            row = self.task_list.row(item)
+            self.task_manager.delete_task(row)
+            self.task_list.takeItem(row)
+        self.sync_tasks_with_ui()
+
+    def toggle_complete(self):
+        selected_items = self.task_list.selectedItems()
+        for item in selected_items:
+            row = self.task_list.row(item)
+            current_state = item.checkState()
+            new_state = Qt.Unchecked if current_state == Qt.Checked else Qt.Checked
+            item.setCheckState(new_state)
+            self.task_manager.mark_complete(row, new_state == Qt.Checked)
+            # Update font to strike through if completed
+            font = item.font()
+            font.setStrikeOut(new_state == Qt.Checked)
+            item.setFont(font)
+
+    def update_task_status(self, item):
+        # Called when check state changes
+        row = self.task_list.row(item)
+        is_done = item.checkState() == Qt.Checked
+        self.task_manager.mark_complete(row, is_done)
+        font = item.font()
+        font.setStrikeOut(is_done)
+        item.setFont(font)
+        self.sync_tasks_with_ui()
+
+    def closeEvent(self, event):
+        # Save tasks on exit
+        # Update task list order and statuses before saving
+        self.sync_tasks_with_ui()
+        self.task_manager.save_tasks('tasks.json')
+        super().closeEvent(event)
+
+    def sync_tasks_with_ui(self):
+        # Rebuild tasks list based on UI order and check states
+        self.task_manager.tasks = []
+        for index in range(self.task_list.count()):
+            item = self.task_list.item(index)
+            text = item.text()
+            done = item.checkState() == Qt.Checked
+            self.task_manager.tasks.append({"text": text, "done": done})
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = TodoListApp()
+    window.show()
+    sys.exit(app.exec_())
