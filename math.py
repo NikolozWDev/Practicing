@@ -1,3 +1,5 @@
+
+
 def is_palindrome(s):
     # Remove spaces and convert to lowercase for a case-insensitive check
     s = s.replace(" ", "").lower()
