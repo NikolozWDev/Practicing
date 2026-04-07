@@ -1,3 +1,21 @@
+@test.describe('Tests')
+     
+def fixed_tests():
+    def testing(n, expected):
+        actual = c(n)
+        test.assert_equals(actual, expected)
+        
+    @test.it('Basic Tests c')
+    def basic_tests1():
+        testing(423128, 0)
+        testing(1369, 4)
+        testing(2999824, 28)
+        testing(11710084, 64)
+        testing(1, 1)
+        testing(4, 4)
+        testing(4096576, 160)
+        testing(2019, 0)
+
 from solution import game
 import codewars_test as test
 
