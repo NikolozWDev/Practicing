@@ -1,3 +1,117 @@
+import json
+import os
+
+# File to store contacts
+CONTACTS_FILE = 'contacts.json'
+
+# Load contacts from file
+def load_contacts():
+    if os.path.exists(CONTACTS_FILE):
+        with open(CONTACTS_FILE, 'r') as file:
+            try:
+                contacts = json.load(file)
+            except json.JSONDecodeError:
+                contacts = []
+    else:
+        contacts = []
+    return contacts
+
+# Save contacts to file
+def save_contacts(contacts):
+    with open(CONTACTS_FILE, 'w') as file:
+        json.dump(contacts, file, indent=4)
+
+# Display all contacts
+def view_contacts(contacts):
+    if not contacts:
+        print("No contacts found.")
+    else:
+        print("\n--- Contact List ---")
+        for idx, contact in enumerate(contacts, start=1):
+            print(f"{idx}. Name: {contact['name']}")
+            print(f"   Phone: {contact['phone']}")
+            print(f"   Email: {contact['email']}\n")
+
+# Add a new contact
+def add_contact(contacts):
+    name = input("Enter name: ").strip()
+    phone = input("Enter phone number: ").strip()
+    email = input("Enter email address: ").strip()
+
+    # Basic validation
+    if not name or not phone or not email:
+        print("All fields are required.")
+        return
+
+    # Check for duplicate
+    for contact in contacts:
+        if contact['name'].lower() == name.lower():
+            print("A contact with this name already exists.")
+            return
+
+    contacts.append({
+        'name': name,
+        'phone': phone,
+        'email': email
+    })
+    save_contacts(contacts)
+    print(f"Contact '{name}' added successfully.")
+
+# Search contacts by name
+def search_contacts(contacts):
+    query = input("Enter name to search: ").strip().lower()
+    found_contacts = [c for c in contacts if query in c['name'].lower()]
+
+    if not found_contacts:
+        print("No contacts found with that name.")
+    else:
+        print("\n--- Search Results ---")
+        for contact in found_contacts:
+            print(f"Name: {contact['name']}")
+            print(f"Phone: {contact['phone']}")
+            print(f"Email: {contact['email']}\n")
+
+# Delete a contact
+def delete_contact(contacts):
+    name = input("Enter the name of the contact to delete: ").strip()
+    for contact in contacts:
+        if contact['name'].lower() == name.lower():
+            contacts.remove(contact)
+            save_contacts(contacts)
+            print(f"Contact '{name}' deleted successfully.")
+            return
+    print("Contact not found.")
+
+# Main menu
+def main():
+    contacts = load_contacts()
+
+    while True:
+        print("\n--- Contact Management System ---")
+        print("1. View all contacts")
+        print("2. Add a new contact")
+        print("3. Search contacts")
+        print("4. Delete a contact")
+        print("5. Exit")
+        choice = input("Enter your choice (1-5): ").strip()
+
+        if choice == '1':
+            view_contacts(contacts)
+        elif choice == '2':
+            add_contact(contacts)
+        elif choice == '3':
+            search_contacts(contacts)
+        elif choice == '4':
+            delete_contact(contacts)
+        elif choice == '5':
+            print("Exiting the program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
+
+if __name__ == "__main__":
+    main()
+
 import sys
 import json
 from PyQt5.QtWidgets import (
