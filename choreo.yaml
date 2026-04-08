@@ -1,1 +1,29 @@
+company:
+  name: TechNova Inc.
+  founded: 2010
+  employees:
+    - name: Alice Johnson
+      position: Software Engineer
+      skills:
+        - Python
+        - JavaScript
+        - Cloud Computing
+    - name: Bob Smith
+      position: Product Manager
+      skills:
+        - Leadership
+        - Communication
+        - Agile Methodologies
+  locations:
+    - New York
+    - San Francisco
+    - Berlin
+  projects:
+    - name: AI Assistant
+      status: In Progress
+      deadline: 2024-12-31
+    - name: Cloud Migration
+      status: Completed
+      completion_date: 2023-07-15
+
 version=20
