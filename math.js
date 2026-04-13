@@ -1,3 +1,21 @@
+describe("tests", function() {
+    const {assert, config} = require('chai');
+    config.truncateThreshold = 0;
+
+    it("Sample tests", function() {
+      assert.strictEqual(new Num(123) + new Num(123), 246);
+      assert.strictEqual(new Num(15) + new Num(15) + 5, 35);
+      assert.strictEqual(new Num(1) * new Num(0) + 5, 5);
+      assert.strictEqual(new Num(1) - new Num(10), -9);
+      assert.strictEqual(new Num(0) + new Num(0) + 0, 0);
+      assert.strictEqual(Math.floor(new Num(5.5)), Math.floor(5.5));
+      assert.strictEqual(new Num(100).toString(), "The number is 100")
+      assert.strictEqual(new Num(150).valueOf().num, 150, "new Num(150).valueOf().num should be 150")
+      assert.typeOf(new Num(150), "object", "typeof new Num should be object")
+      assert.typeOf(new Num(150).valueOf().num, "number")
+    });
+});
+
 const {assert} = require('chai')
 
 describe('Fixed tests', function () {
