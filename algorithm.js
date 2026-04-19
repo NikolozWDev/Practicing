@@ -1,3 +1,35 @@
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
+  const pivot = arr[Math.floor(arr.length / 2)];
+  const left = [];
+  const right = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i === Math.floor(arr.length / 2)) continue;
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+function generateRandomArray(size, min, max) {
+  const result = [];
+  for (let i = 0; i < size; i++) {
+    result.push(Math.floor(Math.random() * (max - min + 1)) + min);
+  }
+  return result;
+}
+
+const arraySize = 20;
+const minValue = 1;
+const maxValue = 100;
+const unsortedArray = generateRandomArray(arraySize, minValue, maxValue);
+const sortedArray = quickSort(unsortedArray);
+console.log('Unsorted:', unsortedArray);
+console.log('Sorted:', sortedArray);
+
 function commitTitle(str) {
   const cleanedStr = str.replace(/[^a-z0-9]/gi, '').toLowerCase();
   const reversedStr = cleanedStr.split('').reverse().join('');
