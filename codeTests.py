@@ -1,3 +1,4 @@
+import codewars
 @test.describe("Thanos Sort")
 def test_thanos():
     @test.it("Fixed Tests")
