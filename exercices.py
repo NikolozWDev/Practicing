@@ -1,3 +1,22 @@
+def vert_mirror(strng):
+    # Split the string into lines
+    lines = strng.split('\n')
+    # Reverse each line
+    reversed_lines = [line[::-1] for line in lines]
+    # Join back
+    return '\n'.join(reversed_lines)
+
+def hor_mirror(strng):
+    # Split into lines
+    lines = strng.split('\n')
+    # Reverse the order of lines
+    reversed_lines = lines[::-1]
+    # Join back
+    return '\n'.join(reversed_lines)
+
+def oper(fct, s):
+    return fct(s)
+
 @test.describe('Tests')
      
 def fixed_tests():
