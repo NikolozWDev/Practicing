@@ -1,4 +1,4 @@
-
+import codewars from codewars.com
 
 chai.config.truncateThreshold=0;
 
