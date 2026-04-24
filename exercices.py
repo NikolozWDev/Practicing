@@ -1,3 +1,31 @@
+def greet(name):
+    return f"Hello, {name}!"
+
+def factorial(n):
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+def list_operations(lst):
+    lst.append(100)
+    lst.remove(lst[0])
+    return lst
+
+def main():
+    names = ["Alice", "Bob", "Charlie"]
+    for name in names:
+        message = greet(name)
+        print(message)
+    number = 10
+    fact = factorial(number)
+    print(f"Factorial of {number} is {fact}")
+    sample_list = [1, 2, 3, 4, 5]
+    updated_list = list_operations(sample_list)
+    print(f"Updated list: {updated_list}")
+    for i in range(1, 6):
+
+
 def vert_mirror(strng):
     # Split the string into lines
     lines = strng.split('\n')
