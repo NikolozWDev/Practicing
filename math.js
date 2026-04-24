@@ -1,3 +1,19 @@
+// Define a class called Person
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+// Create an instance of Person
+const person1 = new Person('Alice', 25);
+person1.greet(); // Output: Hello, my name is Alice and I'm 25 years old.
+
 describe("tests", function() {
     const {assert, config} = require('chai');
     config.truncateThreshold = 0;
