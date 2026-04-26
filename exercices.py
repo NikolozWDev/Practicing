@@ -1,3 +1,22 @@
+# Generate a list of numbers from 1 to 20
+numbers = list(range(1, 21))
+
+# Initialize an empty list to store squares of even numbers
+even_squares = []
+
+# Loop through the numbers
+for num in numbers:
+    # Check if the number is even
+    if num % 2 == 0:
+        # Calculate the square and add to the list
+        square = num ** 2
+        even_squares.append(square)
+
+# Print the list of squares
+print("Squares of even numbers from 1 to 20:")
+for sq in even_squares:
+    print(sq)
+
 def greet(name):
     return f"Hello, {name}!"
 
