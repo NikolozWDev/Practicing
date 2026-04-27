@@ -1,3 +1,30 @@
+import math
+import random
+
+# Sigmoid activation function and its derivative
+def sigmoid(x):
+    return 1 / (1 + math.exp(-x))
+def sigmoid_derivative(x):
+    return x * (1 - x)
+
+# Training data for XOR
+inputs = [[0,0], [0,1], [1,0], [1,1]]
+expected = [0, 1, 1, 0]
+
+# Initialize weights randomly
+w1 = [random.uniform(-1, 1) for _ in range(2)]
+w2 = [random.uniform(-1, 1) for _ in range(2)]
+
+learning_rate = 0.5
+for epoch in range(10000):
+    for inp, target in zip(inputs, expected):
+        # Forward pass
+        z1 = sum(w * i for w, i in zip(w1, inp))
+        a1 = sigmoid(z1)
+        z2 = sum(w * a1 for w in w2)
+        a2 = sigmoid(z2)
+
+        # Calculate error
 
 
 def is_palindrome(s):
