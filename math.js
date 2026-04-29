@@ -1,3 +1,18 @@
+<script>
+  // Function to display a greeting message
+  function greetUser() {
+    alert('Hello! Welcome to my website.');
+  }
+
+  // Add event listener to the button after the DOM loads
+  document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('button');
+    if (button) {
+      button.addEventListener('click', greetUser);
+    }
+  });
+</script>
+
 // Define a class called Person
 class Person {
   constructor(name, age) {
