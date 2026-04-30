@@ -1,3 +1,14 @@
+const { assert } = require('chai');
+
+describe("Tests", () => {
+  it("test", () => {
+    assert.strictEqual(area(5,4),12);
+    assert.strictEqual(area(10,6),48);
+    assert.strictEqual(area(13,5),60);
+    assert.strictEqual(area(12,5),54.54);
+  });
+});
+
 import codewars from codewars.com
 
 chai.config.truncateThreshold=0;
