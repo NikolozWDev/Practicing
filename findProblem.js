@@ -1,3 +1,35 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search projects...';
+    searchInput.style.marginBottom = '10px';
+
+    // Insert the search box at the top of the projects section
+    const projectsSection = document.querySelector('section:nth-of-type(3)');
+    projectsSection.insertBefore(searchInput, projectsSection.firstChild);
+
+    // Select all project articles
+    const projectArticles = projectsSection.querySelectorAll('article');
+
+    // Add input event listener for real-time filtering
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      projectArticles.forEach(article => {
+        const title = article.querySelector('h3').textContent.toLowerCase();
+        const description = article.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          article.style.display = '';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
 no problems resolved
 describe("Example tests", function() {
   it("Basic tests", function() {
