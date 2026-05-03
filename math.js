@@ -1,3 +1,28 @@
+import threading
+import requests
+from bs4 import BeautifulSoup
+import queue
+
+# List of URLs to scrape
+urls = [
+    'https://example.com/page1',
+    'https://example.com/page2',
+    'https://example.com/page3',
+    # Add more URLs as needed
+]
+
+# Thread worker function
+def fetch_and_parse(q, results):
+    while True:
+        url = q.get()
+        if url is None:
+            break
+        try:
+            response = requests.get(url, timeout=5)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
+
+
 <script>
   // Function to display a greeting message
   function greetUser() {
