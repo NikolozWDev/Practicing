@@ -1,3 +1,22 @@
+import threading
+import math
+import random
+
+class Neuron:
+    def __init__(self, input_size):
+        self.weights = [random.uniform(-1, 1) for _ in range(input_size)]
+        self.bias = random.uniform(-1, 1)
+
+    def activate(self, inputs):
+        total = sum(w * i for w, i in zip(self.weights, inputs)) + self.bias
+        return 1 / (1 + math.exp(-total))
+
+def create_layer(size, input_size):
+    return [Neuron(input_size) for _ in range(size)]
+
+def forward_propagate(layer, inputs):
+
+
 import json
 import os
 
