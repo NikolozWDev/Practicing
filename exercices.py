@@ -1,3 +1,23 @@
+import sys
+sys.setrecursionlimit(10**7)
+
+# Generate a large graph with random weights
+import random
+
+NUM_NODES = 1000
+graph = {i: [] for i in range(NUM_NODES)}
+
+# Randomly connect nodes with weights
+for _ in range(NUM_NODES * 5):  # sparse graph
+    u = random.randint(0, NUM_NODES - 1)
+    v = random.randint(0, NUM_NODES - 1)
+    if u != v:
+        weight = random.uniform(1, 10)
+        graph[u].append((v, weight))
+
+# Recursive function to find all paths from start to end with sum greater than a threshold
+
+
 # Generate a list of numbers from 1 to 20
 numbers = list(range(1, 21))
 
