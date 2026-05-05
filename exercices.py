@@ -1,4 +1,16 @@
 import sys
+def recursive_function(n):
+    if n <= 0:
+        return 0
+    else:
+        return n + recursive_function(n - 1)
+
+total = 0
+for i in range(1, 101):
+    total += recursive_function(i)
+print("Total sum:", total)
+
+import sys
 sys.setrecursionlimit(10**7)
 
 # Generate a large graph with random weights
