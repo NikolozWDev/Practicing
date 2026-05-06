@@ -1,3 +1,13 @@
+function debounce(func, delay) {
+  let timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, arguments);
+    }, delay);
+  };
+}
+
 import codewars_test as test
 from solution import format_score_list
 name, score = 'name', 'score'
