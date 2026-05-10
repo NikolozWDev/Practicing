@@ -1,3 +1,26 @@
+Sure! Here's a hard-coded C++ program that calculates and prints the Fibonacci sequence up to a certain number of terms:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int n = 10; // Number of terms
+    long long a = 0, b = 1, next;
+
+    std::cout << "Fibonacci sequence up to " << n << " terms:" << std::endl;
+
+    for (int i = 1; i <= n; ++i) {
+        std::cout << a << " ";
+        next = a + b;
+        a = b;
+        b = next;
+    }
+
+    std::cout << std::endl;
+    return 0;
+}
+```
+
 Describe(Simple_Tests)
 {
     It(should_handle_basic_values)
