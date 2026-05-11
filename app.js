@@ -1,3 +1,4 @@
+import random
 const { assert } = require('chai');
 
 describe("Tests", () => {
