@@ -1,4 +1,58 @@
-Sure! Here's a hard-coded C++ program that calculates and prints the Fibonacci sequence up to a certain number of terms:
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void printBoard(const vector<int>& positions, int N) {
+    for (int row = 0; row < N; ++row) {
+        for (int col = 0; col < N; ++col) {
+            if (positions[row] == col)
+                cout << "Q ";
+            else
+                cout << ". ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+bool isSafe(const vector<int>& positions, int row, int col) {
+    for (int i = 0; i < row; ++i) {
+        int prev_col = positions[i];
+        // Check same column or diagonals
+        if (prev_col == col || abs(prev_col - col) == abs(i - row))
+            return false;
+    }
+    return true;
+}
+
+void solveNQueensUtil(vector<int>& positions, int row, int N, vector<vector<int>>& solutions) {
+    if (row == N) {
+        solutions.push_back(positions);
+        return;
+    }
+    for (int col = 0; col < N; ++col) {
+        if (isSafe(positions, row, col)) {
+            positions[row] = col;
+            solveNQueensUtil(positions, row + 1, N, solutions);
+        }
+    }
+}
+
+int main() {
+    int N = 8; // Change N for different board sizes
+    vector<int> positions(N);
+    vector<vector<int>> solutions;
+
+    solveNQueensUtil(positions, 0, N, solutions);
+
+    cout << "Total solutions for " << N << "-Queens: " << solutions.size() << endl;
+    for (const auto& solution : solutions) {
+        printBoard(solution, N);
+    }
+
+    return 0;
+}
 
 ```cpp
 #include <iostream>
