@@ -1,3 +1,30 @@
+function solveNQueens(N) {
+  const solutions = [];
+  const positions = new Array(N).fill(-1);
+
+  function isSafe(row, col) {
+    for (let i = 0; i < row; i++) {
+      const prevCol = positions[i];
+      // Check same column or diagonals
+      if (prevCol === col || Math.abs(prevCol - col) === Math.abs(i - row)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function backtrack(row = 0) {
+    if (row === N) {
+      solutions.push([...positions]);
+      return;
+    }
+    for (let col = 0; col < N; col++) {
+      if (isSafe(row, col)) {
+        positions[row] = col;
+        backtrack(row + 1);
+        // backtrack
+
+
 import threading
 import requests
 from bs4 import BeautifulSoup
