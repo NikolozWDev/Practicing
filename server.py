@@ -1,3 +1,23 @@
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add(self, product):
+        self.items.append(product)
+
+    def total(self):
+        return sum(p.price for p in self.items)
+
+    def show(self):
+        print("Cart Items:")
+        for p in self.items:
+
+
 def factorial(n):
     result = 1
     for i in range(1, n + 1):
