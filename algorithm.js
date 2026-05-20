@@ -1,3 +1,23 @@
+function bubbleSort(arr) {
+  let n = arr.length;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < n - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        // Swap
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        swapped = true;
+      }
+    }
+    n--; // Reduce the range for optimization
+  } while (swapped);
+  return arr;
+}
+
+// Example usage:
+
+
 function quickSort(arr) {
   if (arr.length <= 1) return arr;
   const pivot = arr[Math.floor(arr.length / 2)];
