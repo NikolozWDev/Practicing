@@ -1,3 +1,98 @@
+class AdvancedCalculator {
+  // Private fields
+  #history = [];
+
+  constructor(initialValue = 0) {
+    this.value = initialValue;
+  }
+
+  // Static method
+  static description() {
+    return 'This is a highly advanced calculator class with multiple features.';
+  }
+
+  // Getter for history
+  get history() {
+    return [...this.#history];
+  }
+
+  // Method to perform addition
+  add(num) {
+    this.value += num;
+    this.#log(`Added ${num}, new value: ${this.value}`);
+    return this;
+  }
+
+  // Method to perform subtraction
+  subtract(num) {
+    this.value -= num;
+    this.#log(`Subtracted ${num}, new value: ${this.value}`);
+    return this;
+  }
+
+  // Method to perform multiplication
+  multiply(num) {
+    this.value *= num;
+    this.#log(`Multiplied by ${num}, new value: ${this.value}`);
+    return this;
+  }
+
+  // Method to perform division
+  divide(num) {
+    if (num === 0) {
+      throw new Error('Cannot divide by zero!');
+    }
+    this.value /= num;
+    this.#log(`Divided by ${num}, new value: ${this.value}`);
+    return this;
+  }
+
+  // Private method to log history
+  #log(operation) {
+    this.#history.push({ operation, timestamp: new Date() });
+  }
+
+  // Async method to fetch data from an API and update value
+  async fetchAndUpdate(apiUrl) {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      if (data && data.value) {
+        this.value = data.value;
+        this.#log(`Fetched and updated value to ${this.value}`);
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
+  }
+}
+
+// Inheritance example
+class AdvancedScientificCalculator extends AdvancedCalculator {
+  constructor(initialValue = 0) {
+    super(initialValue);
+  }
+
+  // Method for power
+  power(exponent) {
+    this.value = Math.pow(this.value, exponent);
+    this.#log(`Raised to the power of ${exponent}, new value: ${this.value}`);
+    return this;
+  }
+}
+
+// Usage:
+(async () => {
+  const calc = new AdvancedScientificCalculator(10);
+  console.log(AdvancedCalculator.description());
+  calc.add(5).subtract(3).multiply(2).divide(4).power(3);
+  console.log('Current value:', calc.value);
+  console.log('History:', calc.history);
+
+  await calc.fetchAndUpdate('https://api.example.com/data');
+  console.log('Updated value after fetch:', calc.value);
+})();
+
 function bubbleSort(arr) {
   let n = arr.length;
   let swapped;
