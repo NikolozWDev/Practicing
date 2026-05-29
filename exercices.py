@@ -1,3 +1,13 @@
+def is_sator_square(tablet):
+    n = len(tablet)
+    for i in range(n):
+        for j in range(n):
+            if tablet[i][j] != tablet[j][i]:
+                return False
+            if tablet[i][j] != tablet[n-1-i][n-1-j]:
+                return False
+    return True
+
 def factorial(n):
     if n < 0:
         return None  # Factorial not defined for negative numbers
