@@ -1,3 +1,34 @@
+def goldbach(even_number):
+    result_arr = []
+    prime_nums = []
+    
+    # first loop shows prime numbers range of even_number, which appends in prime_nums array
+    i = 1
+    while i <= even_number:
+        i_is_prime = True
+        j = 2
+        while j < i:
+            if i % j == 0:
+                i_is_prime = False
+                break
+            j += 1
+        if i_is_prime and i != 1:
+            prime_nums.append(i)
+        i += 1
+    
+    # second loop gives all prime numbers sum for give even_number. which appends in result_arr array
+    k = 0
+    while k <= len(prime_nums) - 1:
+        t = k
+        while t <= len(prime_nums) - 1:
+            if prime_nums[k] + prime_nums[t] == even_number:
+                result_arr.append([prime_nums[k], prime_nums[t]])
+            t += 1
+        k += 1
+    
+    # return result
+    return result_arr
+
 def is_sator_square(tablet):
     n = len(tablet)
     for i in range(n):
