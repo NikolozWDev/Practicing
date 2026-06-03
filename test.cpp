@@ -1,5 +1,49 @@
 #include <iostream>
 #include <vector>
+#include <stdexcept>
+#include <type_traits>
+
+template<typename T>
+T processData(const std::vector<T>& data) {
+    if (data.empty()) throw std::invalid_argument("Empty data vector");
+    T sum = T();
+    for (size_t i = 0; i < data.size(); ++i) {
+        if constexpr (std::is_integral_v<T>) {
+            if (data[i] < 0) throw std::domain_error("Negative value in integral data");
+        }
+        sum += data[i];
+    }
+    if constexpr (std::is_floating_point_v<T>) {
+        return recursiveAverage(data, data.size());
+    }
+    return sum;
+}
+
+template<typename T>
+T recursiveAverage(const std::vector<T>& data, size_t size, size_t index = 0) {
+    if (index == size - 1) return data[index] / static_cast<T>(size);
+    return (data[index] / static_cast<T>(size)) + recursiveAverage(data, size, index + 1);
+}
+
+int main() {
+    try {
+        std::vector<int> intData{1, -2, 3, 4};
+        std::cout << "Int sum: " << processData(intData) << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    try {
+        std::vector<double> doubleData{1.0, 2.0, 3.0, 4.0};
+        std::cout << "Double average: " << processData(doubleData) << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    return 0;
+}
+
+
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
