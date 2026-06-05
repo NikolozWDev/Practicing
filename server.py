@@ -1,3 +1,73 @@
+class AdvancedDataProcessor:
+    _instance_count = 0
+
+    def __init__(self, data):
+        if not isinstance(data, list):
+            raise TypeError("Data must be a list")
+        self._data = data
+        AdvancedDataProcessor._instance_count += 1
+
+    @classmethod
+    def get_instance_count(cls):
+        return cls._instance_count
+
+    @staticmethod
+    def validate_data(data):
+        if not all(isinstance(item, (int, float)) for item in data):
+            raise ValueError("All items must be numeric")
+        return True
+
+    @property
+    def data(self):
+        return self._data
+
+    @data.setter
+    def data(self, new_data):
+        self.validate_data(new_data)
+        self._data = new_data
+
+    def mean(self):
+        if not self._data:
+            raise ValueError("Data list is empty")
+        return sum(self._data) / len(self._data)
+
+    def median(self):
+        if not self._data:
+            raise ValueError("Data list is empty")
+        sorted_data = sorted(self._data)
+        n = len(sorted_data)
+        mid = n // 2
+        if n % 2 == 0:
+            return (sorted_data[mid - 1] + sorted_data[mid]) / 2
+        else:
+            return sorted_data[mid]
+
+    def add_data(self, value):
+        if not isinstance(value, (int, float)):
+            raise TypeError("Value must be numeric")
+        self._data.append(value)
+
+class AdvancedDataAnalyzer(AdvancedDataProcessor):
+    def __init__(self, data):
+        super().__init__(data)
+
+    def variance(self):
+        mean_value = self.mean()
+        return sum((x - mean_value) ** 2 for x in self._data) / len(self._data)
+
+    def standard_deviation(self):
+        return self.variance() ** 0.5
+
+# Usage example:
+if __name__ == "__main__":
+    processor = AdvancedDataAnalyzer([10, 20, 30, 40])
+    print("Mean:", processor.mean())
+    print("Median:", processor.median())
+    print("Variance:", processor.variance())
+    print("Std Dev:", processor.standard_deviation())
+    print("Instance Count:", AdvancedDataProcessor.get_instance_count())
+
+
 class Product:
     def __init__(self, name, price):
         self.name = name
