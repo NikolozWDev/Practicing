@@ -1,3 +1,76 @@
+class DataHandler {
+  static count = 0;
+  #privateData;
+
+  constructor(data) {
+    if (!Array.isArray(data)) throw new TypeError('Data must be an array');
+    this.#privateData = data;
+    DataHandler.count++;
+  }
+
+  static getCount() {
+    return DataHandler.count;
+  }
+
+  get data() {
+    return this.#privateData;
+  }
+
+  set data(newData) {
+    if (!Array.isArray(newData)) throw new TypeError('Data must be an array');
+    this.#privateData = newData;
+  }
+
+  add(item) {
+    this.#validateItem(item);
+    this.#privateData.push(item);
+  }
+
+  remove(item) {
+    const index = this.#privateData.indexOf(item);
+    if (index !== -1) this.#privateData.splice(index, 1);
+  }
+
+  average() {
+    if (this.#privateData.length === 0) throw new Error('No data');
+    const sum = this.#privateData.reduce((acc, val) => acc + val, 0);
+    return sum / this.#privateData.length;
+  }
+
+  median() {
+    if (this.#privateData.length === 0) throw new Error('No data');
+    const sorted = [...this.#privateData].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    if (sorted.length % 2 === 0)
+      return (sorted[mid - 1] + sorted[mid]) / 2;
+    return sorted[mid];
+  }
+
+  #validateItem(item) {
+    if (typeof item !== 'number') throw new TypeError('Item must be a number');
+  }
+}
+
+class AdvancedData extends DataHandler {
+  variance() {
+    const mean = this.average();
+    const squaredDiffs = this.#privateData.map(x => (x - mean) ** 2);
+    const sum = squaredDiffs.reduce((a, b) => a + b, 0);
+    return sum / this.#privateData.length;
+  }
+
+  stdDev() {
+    return Math.sqrt(this.variance());
+  }
+}
+
+const data = new AdvancedData([10, 20, 30]);
+console.log(data.average());
+console.log(data.median());
+console.log(data.variance());
+console.log(data.stdDev());
+console.log(AdvancedData.getCount());
+
 class AdvancedCalculator {
   // Private fields
   #history = [];
