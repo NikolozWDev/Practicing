@@ -1,3 +1,4 @@
+import javascript
 import random
 const { assert } = require('chai');
 
