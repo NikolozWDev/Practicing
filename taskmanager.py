@@ -1,3 +1,5 @@
+import math
+
 function debounce(func, delay) {
   let timer;
   return function() {
