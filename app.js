@@ -1,3 +1,48 @@
+describe("Basic test",() => {
+    const {assert, config} = require('chai');
+    config.truncateThreshold = 0;
+
+    before(function() {
+        loadMyTemplateLanguage();
+    });
+
+    it("Existence of functions", () => {
+      assert(typeof html === "function", "html() is not defined");
+      assert(typeof head === "function", "head() is not defined");
+      assert(typeof title === "function", "title() is not defined");
+      assert(typeof body === "function", "body() is not defined");
+      assert(typeof script === "function", "script() is not defined");
+      assert(typeof link === "function", "link() is not defined");
+      assert(typeof div === "function", "div() is not defined");
+      assert(typeof span === "function", "span() is not defined");
+      assert(typeof img === "function", "img() is not defined");
+      assert(typeof br === "function", "br() is not defined");
+      assert(typeof hr === "function", "hr() is not defined");
+    });
+
+    it('sample tests', function() {
+// https://github.com/codewars/codewars.com/issues/3168
+      assert.strictEqual(
+        html({},[
+            head({},[
+            title({},['Hello, world!']),
+            script({
+              type:'text/javascript',
+                    src:'js/index.js'
+                }),
+                link({
+                    rel:'stylesheet',
+                    href:'css/style.css'
+                })
+          ]),
+            body({},[
+                'Hello, world!'
+            ])
+        ])
+      ,'<html><head><title>Hello, world!</title><script type="text/javascript" src="js/index.js"></script><link rel="stylesheet" href="css/style.css" /></head><body>Hello, world!</body></html>');
+    });
+});
+
 import javascript
 import random
 const { assert } = require('chai');
