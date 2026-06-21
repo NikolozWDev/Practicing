@@ -1,3 +1,21 @@
+def eq_all(iterable):
+    res = list(iterable)
+    length = len(res)
+    submit = True
+    i = 0
+    while i < length:
+        if res[i] == res[i + 1]:
+            pass
+        else:
+            submit = False
+            break
+        if i == length - 1 and submit != False:
+            break
+        elif i + 1 == length - 1:
+            break
+        i += 1
+    return submit
+
 def goldbach(even_number):
     result_arr = []
     prime_nums = []
