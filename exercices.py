@@ -1,3 +1,15 @@
+import codewars_test as test
+from solution import histogram
+
+@test.describe("tests")
+def _():
+    @test.it("Sample Tests")
+    def _():
+        test.assert_equals(histogram([1, 1, 0, 1, 3, 2, 6], 1), [1, 3, 1, 1, 0, 0, 1])
+        test.assert_equals(histogram([1, 1, 0, 1, 3, 2, 6], 2), [4, 2, 0, 1])
+        test.assert_equals(histogram([], 1), [])
+        test.assert_equals(histogram([8], 1), [0, 0, 0, 0, 0, 0, 0, 0, 1])
+
 def eq_all(iterable):
     res = list(iterable)
     length = len(res)
