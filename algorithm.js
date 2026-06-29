@@ -1,3 +1,31 @@
+const { config, expect } = require("chai");
+
+// Disable truncating the content of arrays when printing them on the console
+config.truncateThreshold = 0;
+
+const testEncode = (message, deck, hint) =>
+	describe(`encode message '${message}'`, () =>
+		it(`should return '${deck?.join(" ") || null}'`, () =>
+			expect(encode(message)).to.deep.equal(deck, hint)));
+
+const testDecode = (deck, message, hint) =>
+	describe(`decode deck '${deck.join(" ")}'`, () =>
+		it(`should return '${message}'`, () =>
+			expect(decode(deck)).to.deep.equal(message, hint)));
+
+testEncode(
+	"A",
+	// prettier-ignore
+	[
+		"AC", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "TC", "JC", "QC", "KC",
+		"AD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "TD", "JD", "QD", "KD",
+		"AH", "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "TH", "JH", "QH", "KH",
+		"AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "TS", "JS", "KS", "QS"
+	],
+	"The message 'A' corresponds to the second permutation of the deck of cards (its numeric value is equal to 1)",
+);
+
+
 class DataHandler {
   static count = 0;
   #privateData;
