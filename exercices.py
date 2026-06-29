@@ -1,3 +1,81 @@
+import math
+import datetime
+
+class AdvancedCalculator:
+    def __init__(self, values):
+        self.values = values
+        self.history = []
+
+    def add_value(self, value):
+        self.values.append(value)
+        self.history.append(('add', value))
+
+    def remove_value(self, value):
+        if value in self.values:
+            self.values.remove(value)
+            self.history.append(('remove', value))
+
+    def sum(self):
+        total = sum(self.values)
+        self.history.append(('sum', total))
+        return total
+
+    def product(self):
+        result = 1
+        for v in self.values:
+            result *= v
+        self.history.append(('product', result))
+        return result
+
+    def mean(self):
+        if not self.values:
+            return None
+        mean_value = self.sum() / len(self.values)
+        self.history.append(('mean', mean_value))
+        return mean_value
+
+    def median(self):
+        sorted_vals = sorted(self.values)
+        n = len(sorted_vals)
+        if n == 0:
+            return None
+        mid = n // 2
+        if n % 2 == 0:
+            median_value = (sorted_vals[mid - 1] + sorted_vals[mid]) / 2
+        else:
+            median_value = sorted_vals[mid]
+        self.history.append(('median', median_value))
+        return median_value
+
+    def variance(self):
+        if len(self.values) < 2:
+            return None
+        mean_value = self.mean()
+        var = sum((x - mean_value) ** 2 for x in self.values) / (len(self.values) - 1)
+        self.history.append(('variance', var))
+        return var
+
+    def std_dev(self):
+        var = self.variance()
+        if var is None:
+            return None
+        std = math.sqrt(var)
+        self.history.append(('std_dev', std))
+        return std
+
+    def reset(self):
+        self.values.clear()
+        self.history.clear()
+
+    def get_history(self):
+        return self.history
+
+    def current_time(self):
+        return datetime.datetime.now()
+
+    def __str__(self):
+        return f"Values: {self.values}"
+
 import codewars_test as test
 from solution import histogram
 
