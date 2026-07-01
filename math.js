@@ -1,3 +1,13 @@
+function generateGradient() {
+  const angle = Math.floor(Math.random() * 360);
+  const color1 = `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
+  const color2 = `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
+  return `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+}
+
+console.log(generateGradient());
+
+
 import mathIndoction
 
 function factorial2(n) {
