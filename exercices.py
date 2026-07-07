@@ -1,3 +1,19 @@
+def solution(number):
+    if number < 0:
+        return 0
+    list_numbers = []
+    result_numbers = []
+    for i in range(number):
+        list_numbers.append(i)
+    j = 0
+    while j < len(list_numbers):
+        if j >= len(list_numbers):
+            break
+        if list_numbers[j] % 3 == 0 or list_numbers[j] % 5 == 0:
+            result_numbers.append(list_numbers[j])
+        j += 1
+    return sum(result_numbers)
+
 import math
 import datetime
 
