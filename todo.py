@@ -1,3 +1,19 @@
+def pig_latin(s):
+    if any(x.isdigit() for x in s) or not s:
+        return None
+    word = s.lower()
+    consonants = "bcdfghjklmnpqrstvwxyz"
+    
+    if word[0] in consonants:
+        j = 0
+        while j < len(word) and word[j] in consonants:
+            j += 1
+        if j == len(word):
+            return word + "ay"
+        return word[j:] + word[:j] + "ay"
+    else:
+        return word + "way"
+
 def bmi(weight, height):
     bmi = weight / height * height
     if bmi <= 18.5:
