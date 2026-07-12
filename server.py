@@ -1,3 +1,18 @@
+@test.describe("Fixed Tests")
+def fixed_tests():
+    @test.it('Basic Test Cases')
+    def basic_test_cases():
+        test.assert_equals(decode("yvvi"), "beer")
+        test.assert_equals(decode("Blf zoivzwb szw 10 yvvih"), "You already had 10 beers")
+        test.assert_equals(decode("Ovg'h hdrn rm gsv ulfmgzrm!"), "Let's swim in the fountain!")
+        test.assert_equals(decode({"brand": "Starobrno" }), "Input is not a string")
+        test.assert_equals(decode("Tl slnv, blf'iv wifmp"), "Go home, you're drunk") 
+        test.assert_equals(decode("Hfiv r xzm wzmxv lm xlk'h xzi, slow nb yvvi"), "Sure i can dance on cop's car, hold my beer")
+        test.assert_equals(decode(True), "Input is not a string")
+        test.assert_equals(decode("Hvv? R'n mlg gszg wifmp, r xzm hgroo gzpv nb xolgsvh luu"), "See? I'm not that drunk, i can still take my clothes off")
+        test.assert_equals(decode(123), "Input is not a string")
+        test.assert_equals(decode(["Beer"]), "Input is not a string")
+
 class AdvancedDataProcessor:
     _instance_count = 0
 
