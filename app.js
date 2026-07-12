@@ -1,3 +1,4 @@
+creating edutech site for edutech academy
 describe("Basic test",() => {
     const {assert, config} = require('chai');
     config.truncateThreshold = 0;
