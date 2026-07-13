@@ -1,3 +1,38 @@
+import random
+
+class QuantumCryptographer:
+    def __init__(self, key_length):
+        self.key = [random.randint(0, 1) for _ in range(key_length)]
+        self.state = []
+
+    def encode(self, message):
+        encoded = []
+        for i, bit in enumerate(message):
+            key_bit = self.key[i % len(self.key)]
+            encoded_bit = bit ^ key_bit
+            self.state.append(encoded_bit)
+            encoded.append(encoded_bit)
+        return encoded
+
+    def decode(self, encoded_message):
+        decoded = []
+        for i, bit in enumerate(encoded_message):
+            key_bit = self.key[i % len(self.key)]
+            decoded_bit = bit ^ key_bit
+            decoded.append(decoded_bit)
+        return decoded
+
+    def mutate_key(self):
+        index = random.randint(0, len(self.key) - 1)
+        self.key[index] ^= 1
+
+    def get_state(self):
+        return self.state
+
+    def __str__(self):
+        return f"Key: {self.key}"
+
+
 def solution(number):
     if number < 0:
         return 0
