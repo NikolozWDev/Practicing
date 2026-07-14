@@ -1,3 +1,40 @@
+class MathOperations {
+  add(a, b) {
+    return a + b;
+  }
+
+  subtract(a, b) {
+    return a - b;
+  }
+
+  multiply(a, b) {
+    return a * b;
+  }
+
+  divide(a, b) {
+    if (b === 0) {
+      throw new Error("Division by zero");
+    }
+    return a / b;
+  }
+
+  power(a, b) {
+    return Math.pow(a, b);
+  }
+
+  sqrt(a) {
+    if (a < 0) {
+      throw new Error("Square root of negative number");
+    }
+    return Math.sqrt(a);
+  }
+}
+
+const math = new MathOperations();
+console.log(math.add(5, 3)); // 8
+console.log(math.divide(10, 2)); // 5
+console.log(math.sqrt(16)); // 4
+
 function generateGradient() {
   const angle = Math.floor(Math.random() * 360);
   const color1 = `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
