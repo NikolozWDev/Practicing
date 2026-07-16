@@ -1,3 +1,38 @@
+function shouldPlayerHit(playerTotal, dealerCard, isSoftHand) {
+  // Basic blackjack strategy for hard hands
+  if (!isSoftHand) {
+    if (playerTotal <= 11) {
+      return true; // Always hit on 11 or less
+    } else if (playerTotal >= 17) {
+      return false; // Stand on 17 or more
+    } else if (playerTotal >= 12 && playerTotal <= 16) {
+      if (dealerCard >= 7) {
+        return true; // Hit if dealer shows 7 or higher
+      } else {
+        return false; // Stand if dealer shows 2-6
+      }
+    }
+  } else {
+    // Soft hand strategy (with ace counted as 11)
+    if (playerTotal <= 17) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+// Example usage:
+const playerTotal = 16;
+const dealerCard = 10;
+const isSoftHand = false; // true if hand includes an Ace counted as 11
+
+if (shouldPlayerHit(playerTotal, dealerCard, isSoftHand)) {
+  console.log("Player should Hit");
+} else {
+  console.log("Player should Stand");
+}
+
 class MathOperations {
   add(a, b) {
     return a + b;
