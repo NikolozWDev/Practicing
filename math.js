@@ -1,3 +1,171 @@
+class BlackjackStrategy {
+  constructor() {}
+
+  decideAction(playerHand, dealerUpCard, canSplit = false, canDouble = false) {
+    const total = this.getHandTotal(playerHand);
+    const isSoft = this.isSoftHand(playerHand);
+    const pair = this.isPair(playerHand);
+    const dealerCardValue = this.getCardValue(dealerUpCard);
+
+    // Handle pairs (split)
+    if (pair && canSplit) {
+      return this.splitDecision(playerHand[0], dealerCardValue);
+    }
+
+    // Handle soft hands
+    if (isSoft) {
+      return this.softHandDecision(total, dealerCardValue, canDouble);
+    }
+
+    // Handle hard hands
+    return this.hardHandDecision(total, dealerCardValue, canDouble);
+  }
+
+  getHandTotal(hand) {
+    let total = 0;
+    let aces = 0;
+    for (const card of hand) {
+      const value = this.getCardValue(card);
+      total += value;
+      if (value === 11) aces++;
+    }
+    // Adjust for aces
+    while (total > 21 && aces > 0) {
+      total -= 10;
+      aces--;
+    }
+    return total;
+  }
+
+  isSoftHand(hand) {
+    let total = 0;
+    let aces = 0;
+    for (const card of hand) {
+      const value = this.getCardValue(card);
+      total += value;
+      if (value === 11) aces++;
+    }
+    return aces > 0 && total <= 21;
+  }
+
+  isPair(hand) {
+    return hand.length === 2 && hand[0] === hand[1];
+  }
+
+  getCardValue(card) {
+    if (typeof card === 'number') return card;
+    const rank = card.toString().toUpperCase();
+    if (['J', 'Q', 'K'].includes(rank)) return 10;
+    if (rank === 'A') return 11;
+    return parseInt(rank, 10);
+  }
+
+  splitDecision(card, dealerCard) {
+    // Basic splitting strategy
+    if (card === 'A') {
+      return 'Split'; // Always split Aces
+    }
+    if (card === 8) {
+      return 'Split'; // Always split 8s
+    }
+    if (card === 2 || card === 3) {
+      if (dealerCard >= 4 && dealerCard <= 7) {
+        return 'Split';
+      }
+    }
+    if (card === 4) {
+      if (dealerCard === 5 || dealerCard === 6) {
+        return 'Split';
+      }
+    }
+    if (card === 6) {
+      if (dealerCard >= 3 && dealerCard <= 6) {
+        return 'Split';
+      }
+    }
+    if (card === 9) {
+      if ([2, 3, 4, 5, 6, 8, 9].includes(dealerCard)) {
+        return 'Split';
+      }
+    }
+    return 'Hit'; // Default fallback
+  }
+
+  softHandDecision(total, dealerCard, canDouble) {
+    // Soft totals strategy
+    if (total >= 19) {
+      return 'Stand';
+    }
+    if (total === 18) {
+      if (dealerCard >= 9 || dealerCard === 1) {
+        return 'Hit';
+      } else if (canDouble) {
+        return 'Double';
+      } else {
+        return 'Stand';
+      }
+    }
+    if (total === 17) {
+      if (canDouble && dealerCard >= 3 && dealerCard <= 6) {
+        return 'Double';
+      } else {
+        return 'Hit';
+      }
+    }
+    if (total <= 16) {
+      if (canDouble && dealerCard >= 4 && dealerCard <= 6) {
+        return 'Double';
+      } else {
+        return 'Hit';
+      }
+    }
+    return 'Stand';
+  }
+
+  hardHandDecision(total, dealerCard, canDouble) {
+    // Hard totals strategy
+    if (total >= 17) {
+      return 'Stand';
+    }
+    if (total >= 13 && total <= 16) {
+      if (dealerCard >= 2 && dealerCard <= 6) {
+        return 'Stand';
+      } else {
+        return 'Hit';
+      }
+    }
+    if (total === 12) {
+      if (dealerCard >= 4 && dealerCard <= 6) {
+        return 'Stand';
+      } else {
+        return 'Hit';
+      }
+    }
+    if (total === 11 && canDouble) {
+      return 'Double';
+    }
+    if (total === 10 && canDouble && dealerCard <= 9) {
+      return 'Double';
+    }
+    if (total === 9 && canDouble && dealerCard >= 3 && dealerCard <= 6) {
+      return 'Double';
+    }
+    return 'Hit';
+  }
+}
+
+// Example usage:
+const blackjackAI = new BlackjackStrategy();
+
+const playerHand = [8, 8]; // Example hand
+const dealerUpCard = '9'; // Dealer's visible card
+const canSplit = true;
+const canDouble = true;
+
+const decision = blackjackAI.decideAction(playerHand, dealerUpCard, canSplit, canDouble);
+console.log(`Decision: ${decision}`); // e.g., "Split" or "Hit" or "Stand"
+
+
 function shouldPlayerHit(playerTotal, dealerCard, isSoftHand) {
   // Basic blackjack strategy for hard hands
   if (!isSoftHand) {
