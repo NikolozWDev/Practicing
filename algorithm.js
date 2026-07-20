@@ -1,3 +1,26 @@
+function whichHand(word) {
+  left = ['q', 'w', 'e', 'r', 't', 'a', 's', 'd', 'f', 'g', 'z', 'x', 'c', 'v', 'b']
+  right = ['y', 'h', 'n', 'u', 'j', 'i', 'k', 'm', 'o', 'l', 'p']
+  hasLeft = false
+  hasRight = false
+  for (let char of word) {
+      if (left.includes(char)) {
+          hasLeft = true
+      }
+      if (right.includes(char)) {
+          hasRight = true
+      }
+      if (hasLeft && hasRight) {
+          return "BOTH"
+      }
+  }
+  if(hasLeft) {return "LEFT"}
+  if(hasRight) {return "RIGHT"}
+  
+  return "NONE"
+}
+
+
 const { config, expect } = require("chai");
 
 // Disable truncating the content of arrays when printing them on the console
